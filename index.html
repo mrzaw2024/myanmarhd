@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRRSORGYI - VIDEO Streaming Portal</title>
+    <title>MyanmarHD - VIDEO Streaming Portal</title>
 
     <!-- Dynamic Open Graph Meta Tags for Social Sharing / Link Previews -->
-    <meta property="id" content="SRRSORGYI">
-    <meta property="og:title" id="ogTitle" content="SRRSORGYI - VIDEO Streaming Portal">
+    <meta property="id" content="MyanmarHD">
+    <meta property="og:title" id="ogTitle" content="MyanmarHD - VIDEO Streaming Portal">
     <meta property="og:description" id="ogDesc" content="Watch high quality videos online.">
-    <meta property="og:image" id="ogImage" content="https://via.placeholder.com/1200x630?text=SRRSORGYI">
+    <meta property="og:image" id="ogImage" content="https://via.placeholder.com/1200x630?text=MyanmarHD">
     <meta property="og:type" content="website">
 
     <link rel="preconnect" href="https://z317922-bh22ex.ls04.zwhhosting.com">
@@ -156,6 +156,11 @@
         .site-footer { background: #fff; border-top: 1px solid #e5e7eb; margin-top: auto; padding: 24px 16px; text-align: center; font-size: 12px; color: #6B7280; }
         .site-footer b { color: #5E5ADB; }
 
+        /* ============ Ad zones ============ */
+        .ad-zone { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; margin: 16px auto; overflow: hidden; width: 100%; }
+        .ad-zone iframe { max-width: 100%; }
+        .ad-label { display: block; text-align: center; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; }
+
         /* ============ Toast ============ */
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #0F172A; color: #fff; padding: 12px 24px; border-radius: 40px; font-weight: 700; font-size: 0.875rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2), opacity 0.3s; z-index: 1000; opacity: 0; pointer-events: none; }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
@@ -180,6 +185,20 @@
 
         .loading-text { color: #9ca3af; font-size: 0.875rem; padding: 16px; animation: pulse 1.5s ease-in-out infinite; }
 
+        /* ============ Popup Modal Ad ============ */
+        .ad-popup-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); z-index: 9000; display: none; align-items: center; justify-content: center; padding: 16px; }
+        .ad-popup-overlay.show { display: flex; }
+        .ad-popup-card { position: relative; background: #fff; border-radius: 16px; max-width: 420px; width: 100%; overflow: hidden; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45); animation: popIn 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2); }
+        @keyframes popIn { 0% { transform: scale(0.7); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .ad-popup-close { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border-radius: 50%; border: none; background: rgba(15, 23, 42, 0.7); color: #fff; font-size: 1.05rem; font-weight: 800; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 5; transition: background 0.2s, transform 0.2s; }
+        .ad-popup-close:hover { background: #dc2626; transform: rotate(90deg); }
+        .ad-popup-link { display: block; }
+        .ad-popup-badge { display: block; text-align: center; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; background: #f9fafb; padding: 8px 0; }
+        .ad-popup-media { position: relative; aspect-ratio: 16 / 10; background: #1e293b; overflow: hidden; }
+        .ad-popup-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .ad-popup-overlay-img { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(94, 90, 219, 0.55), rgba(236, 72, 153, 0.4) 50%, rgba(94, 90, 219, 0.15)); }
+        .ad-popup-cta { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); background: linear-gradient(90deg, #5E5ADB, #8B5CF6, #EC4899); color: #fff; font-weight: 800; font-size: 0.875rem; padding: 10px 24px; border-radius: 999px; box-shadow: 0 8px 24px rgba(94, 90, 219, 0.5); white-space: nowrap; }
+
         @media (max-width: 640px) {
             .card-wide { width: 280px; }
             .card-upcoming { width: 200px; }
@@ -201,6 +220,57 @@
                 <button class="btn btn-gray" onclick="declineAge()">Exit</button>
                 <button class="btn btn-primary" onclick="agreeAge()">I am 18 or older</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Popup Modal Ad -->
+    <div id="adPopupOverlay" class="ad-popup-overlay">
+        <div class="ad-popup-card">
+            <button class="ad-popup-close" onclick="closeAdPopup()" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+            <a class="ad-popup-link" id="adPopupLink" href="https://www.profitableratecpmnetwork.com/pkanxuighw?key=05efdf5ea970da158aea57c706d7511f" target="_blank" rel="nofollow noopener sponsored">
+                <span class="ad-popup-badge">Sponsored</span>
+                <div class="ad-popup-media">
+                    <img src="https://images.weserv.nl/?url=via.placeholder.com/800x500.png?text=ADVERTISE+HERE&w=800&output=jpg" alt="Advertisement">
+                    <div class="ad-popup-overlay-img"></div>
+                    <span class="ad-popup-cta">WATCH NOW</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Second Popup Modal Ad (shown after closing the first) -->
+    <div id="adPopupOverlay2" class="ad-popup-overlay">
+        <div class="ad-popup-card">
+            <button class="ad-popup-close" onclick="closeAdPopup2()" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+            <a class="ad-popup-link" id="adPopupLink2" href="https://www.profitableratecpmnetwork.com/pkanxuighw?key=05efdf5ea970da158aea57c706d7511f" target="_blank" rel="nofollow noopener sponsored">
+                <span class="ad-popup-badge">Sponsored</span>
+                <div class="ad-popup-media" style="aspect-ratio: 16 / 9;">
+                    <img src="https://images.weserv.nl/?url=via.placeholder.com/800x450.png?text=WATCH+FREE+NOW&w=800&output=jpg" alt="Advertisement">
+                    <div class="ad-popup-overlay-img"></div>
+                    <span class="ad-popup-cta">GET STARTED</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Third Popup Modal Ad (shown after closing the second) -->
+    <div id="adPopupOverlay3" class="ad-popup-overlay">
+        <div class="ad-popup-card">
+            <button class="ad-popup-close" onclick="closeAdPopup3()" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+            <a class="ad-popup-link" id="adPopupLink3" href="https://www.profitableratecpmnetwork.com/pkanxuighw?key=05efdf5ea970da158aea57c706d7511f" target="_blank" rel="nofollow noopener sponsored">
+                <span class="ad-popup-badge">Sponsored</span>
+                <div class="ad-popup-media" style="aspect-ratio: 16 / 9;">
+                    <img src="https://images.weserv.nl/?url=via.placeholder.com/800x450.png?text=WATCH+NOW&w=800&output=jpg" alt="Advertisement">
+                    <div class="ad-popup-overlay-img"></div>
+                    <span class="ad-popup-cta">OPEN NOW</span>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -263,17 +333,20 @@
                 <div class="banner-laser-box">
                     <div class="banner-inside">
                         <div class="banner-media">
-                            <img src="https://images.weserv.nl/?url=via.placeholder.com/1200x630.png?text=SRRSORGYI&w=1200&output=jpg" alt="Banner">
+                            <img src="https://images.weserv.nl/?url=via.placeholder.com/1200x630.png?text=MyanmarHD&w=1200&output=jpg" alt="Banner">
                             <div class="banner-overlay"></div>
                             <div class="banner-content">
                                 <span class="live-pill"><span class="live-dot"></span> Live Streaming</span>
-                                <h2 class="banner-h">SRRSORGYI <span class="gradient-text">VIDEO HUB</span></h2>
+                                <h2 class="banner-h">MyanmarHD <span class="gradient-text">VIDEO HUB</span></h2>
                                 <p class="banner-p">Watch the hottest videos anytime, anywhere</p>
                             </div>
                             <div class="banner-sponsored">Sponsored Ads</div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Ad: 728x90 Leaderboard -->
+                <div class="ad-zone" data-key="a3c603223f0ea8562cca82730929e97f" data-w="728" data-h="90"></div>
 
                 <!-- 18+ Upcoming -->
                 <section class="section">
@@ -288,6 +361,9 @@
                     </div>
                 </section>
 
+                <!-- Ad: 728x90 Middle (resized from 300x250) -->
+                <div class="ad-zone" data-key="a3c603223f0ea8562cca82730929e97f" data-w="728" data-h="90"></div>
+
                 <!-- 18+ Hot Video -->
                 <section id="hot-section" class="section">
                     <div class="section-title">
@@ -300,6 +376,9 @@
                         <div class="loading-text">Loading Hot Videos...</div>
                     </div>
                 </section>
+
+                <!-- Ad: Native Banner -->
+                <div class="ad-zone" data-type="native" data-key="3fd9e2fe4c94dedd18c20d13335bb9fe"></div>
 
                 <!-- 18+ All Video List -->
                 <section id="movie-list-section" class="section">
@@ -321,6 +400,9 @@
                         </button>
                     </div>
                 </section>
+
+                <!-- Ad: 320x50 Mobile Banner -->
+                <div class="ad-zone" data-key="69f5939abad35915bf6b6300bc92ec9c" data-w="320" data-h="50"></div>
             </main>
         </div>
 
@@ -345,6 +427,9 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                     Back
                 </button>
+                <!-- Ad: 468x60 Banner -->
+                <div class="ad-zone" data-key="04c3f8853791fbbdb8735de6e86b4ca1" data-w="468" data-h="60"></div>
+
                 <div class="player-container">
                     <video id="detailVideo" controls autoplay playsinline preload="auto"></video>
                     <div id="playerLoader" class="player-loader"><div class="spinner"></div></div>
@@ -352,17 +437,26 @@
                 <h1 class="detail-title" id="detailTitle"></h1>
                 <p class="detail-desc" id="detailDescription"></p>
 
+                <!-- Ad: 160x600 Skyscraper -->
+                <div class="ad-zone" data-key="a6cfb4034b8301762835b768fd53f16f" data-w="160" data-h="600"></div>
+
                 <div class="section-title" style="margin-top: 24px;">
                     <span class="badge-18">18+</span>
                     <span class="gradient-text">Recommended</span>
                 </div>
                 <div class="laser-container"><div class="laser-line"></div></div>
                 <div id="recommendationWrapper" class="h-scroll"></div>
+
+                <!-- Ad: 160x300 Vertical -->
+                <div class="ad-zone" data-key="47da57271342cec40fd447aef8052e2b" data-w="160" data-h="300"></div>
             </main>
         </div>
 
         <footer class="site-footer">
-            <b>SRRSORGYI</b> — Copyright © 2026 All Rights Reserved.
+            <b>MyanmarHD</b> — Copyright © 2026 All Rights Reserved.
+            <div style="margin-top: 8px;">
+                <a href="https://www.profitableratecpmnetwork.com/pkanxuighw?key=05efdf5ea970da158aea57c706d7511f" target="_blank" rel="nofollow noopener sponsored" style="color:#5E5ADB; font-weight:700;">Sponsored</a>
+            </div>
         </footer>
     </div>
 
@@ -461,6 +555,7 @@
             if (isFetching) return;
             currentPage++;
             if (currentPage > 10) currentPage = 1;
+            showExploreAdPopup();
             const btn = document.querySelector('#loadMoreBtn .load-more-inner');
             if (btn) btn.innerHTML = '<svg class="searching-spin" style="animation:spin .8s linear infinite;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg> REFRESHING VIDEOS...';
             fetchDataFromApi(currentPage, true);
@@ -718,7 +813,7 @@
             document.getElementById("ogTitle").setAttribute("content", video.title);
             document.getElementById("ogDesc").setAttribute("content", video.description || video.title);
             document.getElementById("ogImage").setAttribute("content", video.thumbnail);
-            document.title = `${video.title} - SRRSORGYI`;
+            document.title = `${video.title} - MyanmarHD`;
 
             const videoElement = document.getElementById("detailVideo");
             videoElement.poster = video.thumbnail;
@@ -751,7 +846,7 @@
             videoElement.removeAttribute("poster");
 
             document.getElementById("detailPage").style.display = "none";
-            document.title = "SRRSORGYI - VIDEO Streaming Portal";
+            document.title = "MyanmarHD - VIDEO Streaming Portal";
             history.pushState("", document.title, window.location.pathname);
             showHome();
         }
@@ -819,9 +914,11 @@
             if (localStorage.getItem(AGE_KEY) === "true") {
                 document.getElementById("ageOverlay").style.display = "none";
                 document.getElementById("app").style.display = "block";
+                loadAllAds();
                 if (!window.location.hash.startsWith('#video/')) {
                     fetchDataFromApi(1, false);
                 }
+                maybeShowAdPopup();
             }
         }
 
@@ -829,14 +926,110 @@
             localStorage.setItem(AGE_KEY, "true");
             document.getElementById("ageOverlay").style.display = "none";
             document.getElementById("app").style.display = "block";
+            loadAllAds();
             if (!window.location.hash.startsWith('#video/')) {
                 fetchDataFromApi(1, false);
             }
+            setTimeout(maybeShowAdPopup, 1200);
         }
 
         function declineAge() {
             document.querySelector(".age-p").textContent = "Access denied.";
         }
+
+        /* ============ Popup Modal Ad ============ */
+        const AD_POPUP_KEY = "general_video_ad_popup_v1";
+
+        function maybeShowAdPopup() {
+            if (sessionStorage.getItem(AD_POPUP_KEY) === "true") return;
+            sessionStorage.setItem(AD_POPUP_KEY, "true");
+            setTimeout(() => {
+                const overlay = document.getElementById("adPopupOverlay");
+                if (overlay) overlay.classList.add("show");
+            }, 800);
+        }
+
+        function closeAdPopup() {
+            const overlay = document.getElementById("adPopupOverlay");
+            if (overlay) overlay.classList.remove("show");
+            showAdPopup2Once();
+        }
+
+        function showAdPopup2Once() {
+            if (sessionStorage.getItem("general_video_ad_popup2_v1") === "true") return;
+            sessionStorage.setItem("general_video_ad_popup2_v1", "true");
+            setTimeout(() => {
+                const overlay2 = document.getElementById("adPopupOverlay2");
+                if (overlay2) overlay2.classList.add("show");
+            }, 600);
+        }
+
+        function closeAdPopup2() {
+            const overlay2 = document.getElementById("adPopupOverlay2");
+            if (overlay2) overlay2.classList.remove("show");
+            showAdPopup3Once();
+        }
+
+        function showAdPopup3Once() {
+            if (sessionStorage.getItem("general_video_ad_popup3_v1") === "true") return;
+            sessionStorage.setItem("general_video_ad_popup3_v1", "true");
+            setTimeout(() => {
+                const overlay3 = document.getElementById("adPopupOverlay3");
+                if (overlay3) overlay3.classList.add("show");
+            }, 600);
+        }
+
+        function closeAdPopup3() {
+            const overlay3 = document.getElementById("adPopupOverlay3");
+            if (overlay3) overlay3.classList.remove("show");
+        }
+
+        /* ============ Dynamic Ad Loading ============ */
+        function loadAdZone(zone) {
+            if (!zone || zone.dataset.loaded) return;
+            zone.dataset.loaded = "1";
+            const label = document.createElement("span");
+            label.className = "ad-label";
+            label.textContent = "Advertisement";
+            zone.appendChild(label);
+            if (zone.dataset.type === "native") {
+                const scr = document.createElement("script");
+                scr.async = true;
+                scr.setAttribute("data-cfasync", "false");
+                scr.src = `https://pl31085122.profitableratecpmnetwork.com/${zone.dataset.key}/invoke.js`;
+                zone.appendChild(scr);
+                const box = document.createElement("div");
+                box.id = `container-${zone.dataset.key}`;
+                zone.appendChild(box);
+            } else {
+                const opts = document.createElement("script");
+                opts.text = `atOptions = { 'key' : '${zone.dataset.key}', 'format' : 'iframe', 'height' : ${zone.dataset.h}, 'width' : ${zone.dataset.w}, 'params' : {} };`;
+                zone.appendChild(opts);
+                const inv = document.createElement("script");
+                inv.src = `https://www.highrevenueformat.com/${zone.dataset.key}/invoke.js`;
+                zone.appendChild(inv);
+            }
+        }
+
+        function loadAllAds() {
+            document.querySelectorAll('.ad-zone').forEach(loadAdZone);
+        }
+
+        function showExploreAdPopup() {
+            const overlay = document.getElementById("adPopupOverlay");
+            if (!overlay) return;
+            const overlay2 = document.getElementById("adPopupOverlay2");
+            const overlay3 = document.getElementById("adPopupOverlay3");
+            if (overlay2 && overlay2.classList.contains("show")) overlay2.classList.remove("show");
+            if (overlay3 && overlay3.classList.contains("show")) overlay3.classList.remove("show");
+            overlay.classList.add("show");
+        }
     </script>
+
+    <!-- Ad: Popunder -->
+    <script src="https://pl31085120.profitableratecpmnetwork.com/d3/e9/f6/d3e9f63be036be390fe85278f114faf3.js"></script>
+
+    <!-- Ad: SocialBar -->
+    <script src="https://pl31085123.profitableratecpmnetwork.com/f9/ab/2a/f9ab2a657b75aa7d1a8fbb22225bbb37.js"></script>
 </body>
 </html>
