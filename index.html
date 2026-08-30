@@ -1,47 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="my">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="6a97888e-site-verification" content="fd7b02b2dbe7b97152674302d6ced136">
     <title>MyanmarHD - VIDEO Streaming Portal</title>
 
     <!-- Dynamic Open Graph Meta Tags -->
     <meta property="id" content="MyanmarHD">
-    <meta property="og:title" id="ogTitle" content="MyanmarHD - VIDEO Streaming Portal">
-    <meta property="og:description" id="ogDesc" content="Watch high quality videos online.">
-    <meta property="og:image" id="ogImage" content="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1200">
+    <meta property="og:title" content="MyanmarHD - VIDEO Streaming Portal">
+    <meta property="og:description" content="Watch high quality videos online.">
     <meta property="og:type" content="website">
 
-    <link rel="preconnect" href="https://z317922-bh22ex.ls04.zwhhosting.com">
-    <link rel="dns-prefetch" href="https://z317922-bh22ex.ls04.zwhhosting.com">
-
     <style>
+        :root {
+            --bg: #0A0F1E;
+            --bg-soft: #0E1526;
+            --surface: #141D33;
+            --surface-2: #1B2742;
+            --border: rgba(148, 163, 184, 0.16);
+            --text: #E6EAF3;
+            --text-muted: #93A0B8;
+            --indigo: #6366F1;
+            --violet: #8B5CF6;
+            --cyan: #22D3EE;
+            --pink: #F472B6;
+            --grad: linear-gradient(90deg, #6366F1, #8B5CF6, #22D3EE, #F472B6);
+            --grad-soft: linear-gradient(135deg, #6366F1, #8B5CF6);
+            --shadow-glow: 0 18px 40px rgba(99, 102, 241, 0.35);
+            --radius: 16px;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #EBF0F8;
-            color: #0F172A;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Pyidaungsu', 'Myanmar Text', 'Noto Sans Myanmar', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             background-image:
-                radial-gradient(900px 400px at 85% -5%, rgba(94, 90, 219, 0.08), transparent 60%),
-                radial-gradient(700px 350px at -5% 15%, rgba(236, 72, 153, 0.06), transparent 60%);
+                radial-gradient(900px 420px at 85% -5%, rgba(99, 102, 241, 0.18), transparent 60%),
+                radial-gradient(760px 360px at -5% 15%, rgba(34, 211, 238, 0.10), transparent 60%),
+                radial-gradient(700px 380px at 50% 110%, rgba(244, 114, 182, 0.10), transparent 60%);
             background-attachment: fixed;
             padding-bottom: 20px;
         }
 
         .gradient-text {
-            background: linear-gradient(90deg, #5E5ADB, #8B5CF6, #EC4899);
+            background: var(--grad);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* ============ Laser animation ============ */
-        .laser-container { position: relative; height: 4px; width: 100%; background-color: #E5E7EB; overflow: hidden; border-radius: 99px; margin-top: 6px; }
-        .laser-line { position: absolute; top: 0; left: 0; height: 100%; width: 30%; background: linear-gradient(90deg, transparent, #5E5ADB, #8B5CF6, #EC4899, transparent); animation: laserRun 2s cubic-bezier(0.4, 0, 0.2, 1) infinite; box-shadow: 0 0 8px #8B5CF6; }
+        /* ============ Animations ============ */
+        .laser-container { position: relative; height: 4px; width: 100%; background-color: rgba(148, 163, 184, 0.14); overflow: hidden; border-radius: 99px; margin-top: 6px; }
+        .laser-line { position: absolute; top: 0; left: 0; height: 100%; width: 30%; background: var(--grad); animation: laserRun 2s cubic-bezier(0.4, 0, 0.2, 1) infinite; box-shadow: 0 0 10px var(--cyan); }
         @keyframes laserRun { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
@@ -49,357 +65,165 @@
         @keyframes liveBlink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.8); } }
         @keyframes borderRotate { 100% { transform: rotate(360deg); } }
 
-        .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #ef4444; animation: liveBlink 1.2s ease-in-out infinite; }
+        .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 10px #ef4444; animation: liveBlink 1.2s ease-in-out infinite; }
 
         /* ============ Header ============ */
-        .top-header { background: #fff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 50; padding: 12px 16px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06); }
+        .top-header { background: rgba(10, 15, 30, 0.72); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; padding: 12px 16px; }
         .header-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
         .logo { display: flex; align-items: center; gap: 8px; cursor: pointer; text-decoration: none; flex-shrink: 0; }
-        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #5E5ADB, #8B5CF6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 4px 10px rgba(94, 90, 219, 0.4); }
-        .logo-text { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.05em; color: #5E5ADB; }
+        .logo-icon { width: 32px; height: 32px; background: var(--grad); border-radius: 9px; display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.55); }
+        .logo-text { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.05em; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         .search-wrap { flex: 1; max-width: 448px; position: relative; }
-        .search-input { width: 100%; background: #F3F4F6; color: #0F172A; padding: 9px 14px 9px 38px; border-radius: 10px; border: 1px solid transparent; font-size: 0.875rem; font-family: inherit; outline: none; }
-        .search-input:focus { border-color: #5E5ADB; }
-        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #9ca3af; width: 16px; height: 16px; pointer-events: none; }
-        .menu-btn { background: none; border: none; color: #0F172A; cursor: pointer; padding: 8px; border-radius: 8px; display: flex; }
-        .menu-btn:hover { background: #f3f4f6; }
+        .search-input { width: 100%; background: var(--surface); color: var(--text); padding: 9px 14px 9px 38px; border-radius: 12px; border: 1px solid var(--border); font-size: 0.875rem; font-family: inherit; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .search-input:focus { border-color: var(--indigo); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.22); }
+        .search-input::placeholder { color: var(--text-muted); }
+        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); width: 16px; height: 16px; pointer-events: none; }
+        .menu-btn { background: none; border: none; color: var(--text); cursor: pointer; padding: 8px; border-radius: 8px; display: flex; }
+        .menu-btn:hover { background: var(--surface); }
         .menu-btn svg { width: 22px; height: 22px; }
 
         /* ============ Sidebar ============ */
-        .sidebar-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); z-index: 60; display: none; }
+        .sidebar-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.55); z-index: 60; display: none; }
         .sidebar-overlay.open { display: block; }
-        .sidebar { position: fixed; top: 0; right: 0; height: 100%; width: 256px; background: #fff; box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; z-index: 61; transform: translateX(100%); transition: transform 0.3s ease; }
+        .sidebar { position: fixed; top: 0; right: 0; height: 100%; width: 256px; background: var(--surface); border-left: 1px solid var(--border); box-shadow: -4px 0 28px rgba(0, 0, 0, 0.5); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; z-index: 61; transform: translateX(100%); transition: transform 0.3s ease; }
         .sidebar.open { transform: translateX(0); }
         .sidebar-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
-        .sidebar-title { font-size: 1.25rem; font-weight: 800; color: #5E5ADB; }
-        .close-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: #0F172A; display: flex; }
-        .close-btn:hover { background: #f3f4f6; }
+        .sidebar-title { font-size: 1.25rem; font-weight: 800; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .close-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; }
+        .close-btn:hover { background: var(--surface-2); }
         .close-btn svg { width: 18px; height: 18px; }
         .sidebar-nav { display: flex; flex-direction: column; gap: 8px; }
-        .nav-link { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; color: #6B7280; text-decoration: none; font-weight: 500; font-size: 0.95rem; cursor: pointer; background: none; border: none; width: 100%; text-align: left; font-family: inherit; }
-        .nav-link:hover { background: #f9fafb; }
-        .nav-link.active { background: #F3F4F6; color: #5E5ADB; font-weight: 800; }
+        .nav-link { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 0.95rem; cursor: pointer; background: none; border: none; width: 100%; text-align: left; font-family: inherit; transition: background 0.2s, color 0.2s; }
+        .nav-link:hover { background: var(--surface-2); color: var(--text); }
+        .nav-link.active { background: rgba(99, 102, 241, 0.16); color: var(--indigo); font-weight: 800; }
         .nav-link svg { width: 18px; height: 18px; flex-shrink: 0; }
 
         /* ============ Main ============ */
         .main { flex: 1; max-width: 1280px; width: 100%; margin: 0 auto; padding: 16px; display: flex; flex-direction: column; gap: 32px; }
         .section { display: flex; flex-direction: column; gap: 16px; }
-        .section-title { display: flex; align-items: center; gap: 10px; font-size: 1.125rem; font-weight: 800; color: #0F172A; }
-        .section-title svg { width: 16px; height: 16px; color: #f97316; }
-        .badge-18 { background: linear-gradient(135deg, #ef4444, #f97316); color: #fff; font-size: 10px; padding: 3px 8px; border-radius: 6px; font-weight: 700; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4); letter-spacing: 0.5px; }
+        .section-title { display: flex; align-items: center; gap: 10px; font-size: 1.125rem; font-weight: 800; color: var(--text); }
+        .section-title svg { width: 16px; height: 16px; color: var(--pink); }
+        .badge-18 { background: linear-gradient(135deg, #ef4444, #f97316); color: #fff; font-size: 10px; padding: 3px 8px; border-radius: 6px; font-weight: 700; box-shadow: 0 2px 10px rgba(239, 68, 68, 0.5); letter-spacing: 0.5px; }
 
         /* ============ Banner ============ */
-        .banner-laser-box { position: relative; padding: 3px; overflow: hidden; border-radius: 18px; background: #E5E7EB; max-width: 896px; margin: 0 auto; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); }
-        .banner-laser-box::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg, transparent 40%, #4ADE80 50%, transparent 60%); animation: borderRotate 3s linear infinite; }
-        .banner-inside { position: relative; z-index: 10; background: #fff; border-radius: 15px; overflow: hidden; }
+        .banner-laser-box { position: relative; padding: 3px; overflow: hidden; border-radius: 18px; background: var(--surface); max-width: 896px; margin: 0 auto; box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5); }
+        .banner-laser-box::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg, transparent 35%, var(--cyan) 48%, transparent 60%); animation: borderRotate 3s linear infinite; }
+        .banner-inside { position: relative; z-index: 10; background: var(--bg-soft); border-radius: 15px; overflow: hidden; }
         .banner-media { position: relative; aspect-ratio: 16 / 9; background: #1e293b; }
         .banner-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-        .banner-overlay { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(94, 90, 219, 0.75), rgba(236, 72, 153, 0.55) 50%, rgba(94, 90, 219, 0.2)); }
+        .banner-overlay { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(99, 102, 241, 0.72), rgba(34, 211, 238, 0.5) 50%, rgba(244, 114, 182, 0.35)); }
         .banner-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 24px; }
         .live-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 0, 0, 0.5); padding: 6px 16px; border-radius: 999px; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-        .banner-h { color: #fff; font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 900; text-shadow: 0 4px 20px rgba(15, 23, 42, 0.6); letter-spacing: 0.5px; }
-        .banner-p { color: rgba(255, 255, 255, 0.85); font-size: clamp(0.75rem, 2vw, 0.875rem); margin-top: 8px; text-shadow: 0 2px 10px rgba(15, 23, 42, 0.5); }
-        .banner-sponsored { position: absolute; bottom: 16px; left: 16px; background: rgba(0, 0, 0, 0.6); padding: 6px 12px; border-radius: 6px; color: #fff; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+        .banner-h { color: #fff; font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 900; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); letter-spacing: 0.5px; }
+        .banner-p { color: rgba(255, 255, 255, 0.85); font-size: clamp(0.75rem, 2vw, 0.875rem); margin-top: 8px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
 
         /* ============ Horizontal scroll rows ============ */
         .h-scroll { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; scrollbar-width: none; }
         .h-scroll::-webkit-scrollbar { display: none; }
 
         /* ============ Cards ============ */
-        .movie-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; flex-shrink: 0; cursor: pointer; scroll-snap-align: start; transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease; }
-        .movie-card:hover { transform: translateY(-6px); border-color: #5E5ADB; box-shadow: 0 16px 34px rgba(94, 90, 219, 0.18), 0 6px 14px rgba(15, 23, 42, 0.08); }
+        .movie-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; flex-shrink: 0; cursor: pointer; scroll-snap-align: start; transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease; }
+        .movie-card:hover { transform: translateY(-6px); border-color: rgba(99, 102, 241, 0.7); box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(99, 102, 241, 0.2), 0 8px 22px rgba(99, 102, 241, 0.22); }
         .card-upcoming { width: 220px; }
         .card-upcoming .card-media { height: 264px; }
         .card-wide { width: 320px; }
         .card-wide .card-media { aspect-ratio: 16 / 9; }
-        .card-media { position: relative; background: #e2e8f0; overflow: hidden; }
+        .card-media { position: relative; background: var(--surface-2); overflow: hidden; }
         .card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
         .movie-card:hover .card-media img { transform: scale(1.06); }
         .fav-btn { position: absolute; top: 8px; left: 8px; z-index: 10; width: 32px; height: 32px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease, background 0.2s ease; }
         .fav-btn svg { width: 15px; height: 15px; }
-        .fav-btn:not(.on) { background: rgba(0, 0, 0, 0.5); color: #fff; }
-        .fav-btn:not(.on):hover { background: rgba(0, 0, 0, 0.7); }
-        .fav-btn.on { background: #fff; color: #f43f5e; }
+        .fav-btn:not(.on) { background: rgba(0, 0, 0, 0.5); color: #fff; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+        .fav-btn:not(.on):hover { background: rgba(0, 0, 0, 0.75); }
+        .fav-btn.on { background: var(--pink); color: #fff; box-shadow: 0 4px 14px rgba(244, 114, 182, 0.5); }
         .fav-btn:hover { transform: scale(1.1); }
-        .badge-hot { position: absolute; top: 8px; right: 8px; background: #dc2626; color: #fff; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 6px; }
-        .badge-rate { position: absolute; bottom: 8px; right: 8px; background: rgba(0, 0, 0, 0.7); padding: 2px 8px; border-radius: 6px; color: #fff; font-size: 11px; font-weight: 800; }
+        .badge-hot { position: absolute; top: 8px; right: 8px; background: linear-gradient(135deg, #dc2626, #f97316); color: #fff; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 6px; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.5); }
+        .badge-rate { position: absolute; bottom: 8px; right: 8px; background: rgba(0, 0, 0, 0.65); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); padding: 2px 8px; border-radius: 6px; color: #fff; font-size: 11px; font-weight: 800; }
+        .badge-dur { position: absolute; bottom: 8px; right: 8px; background: rgba(0, 0, 0, 0.65); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); padding: 2px 8px; border-radius: 6px; color: #fff; font-size: 11px; font-weight: 800; }
         .card-info { padding: 12px; }
-        .card-title { font-size: 0.875rem; font-weight: 800; color: #0F172A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .card-sub { font-size: 12px; color: #ef4444; font-weight: 700; margin-top: 4px; display: flex; align-items: center; gap: 6px; }
-        .card-sub svg { width: 12px; height: 12px; color: #f97316; }
+        .card-title { font-size: 0.875rem; font-weight: 800; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .card-sub { font-size: 12px; color: var(--pink); font-weight: 700; margin-top: 4px; display: flex; align-items: center; gap: 6px; }
+        .card-sub svg { width: 12px; height: 12px; color: var(--pink); }
         .card-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
         .star { color: #f59e0b; font-size: 12px; font-weight: 800; }
-        .card-cat { color: #ef4444; font-size: 12px; font-weight: 800; }
+        .card-cat { color: var(--pink); font-size: 12px; font-weight: 800; }
 
         /* ============ Explore More ============ */
-        .explore-wrap { text-align: center; padding-top: 32px; }
-        .load-more-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 2px; border-radius: 12px; border: none; cursor: pointer; background: linear-gradient(90deg, #5E5ADB, #8B5CF6, #EC4899); box-shadow: 0 8px 20px rgba(94, 90, 219, 0.5); transition: transform 0.2s, box-shadow 0.2s; font-family: inherit; }
-        .load-more-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(139, 92, 246, 0.6); }
-        .load-more-inner { display: flex; align-items: center; gap: 8px; padding: 12px 32px; border-radius: 10px; background: rgba(15, 23, 42, 0.92); color: #fff; font-size: 0.875rem; font-weight: 800; letter-spacing: 0.05em; }
-        .load-more-btn:hover .load-more-inner { background: rgba(15, 23, 42, 0); }
+        .explore-wrap { text-align: center; padding-top: 8px; }
+        .load-more-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 2px; border-radius: 14px; border: none; cursor: pointer; background: var(--grad); box-shadow: 0 8px 24px rgba(99, 102, 241, 0.55); transition: transform 0.2s, box-shadow 0.2s; font-family: inherit; }
+        .load-more-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(139, 92, 246, 0.65); }
+        .load-more-inner { display: flex; align-items: center; gap: 8px; padding: 12px 32px; border-radius: 12px; background: rgba(10, 15, 30, 0.94); color: #fff; font-size: 0.875rem; font-weight: 800; letter-spacing: 0.05em; }
+        .load-more-btn:hover .load-more-inner { background: rgba(10, 15, 30, 0.6); }
         .load-more-inner svg { width: 14px; height: 14px; color: #fbbf24; animation: bounce 0.8s ease-in-out infinite; }
 
         /* ============ Detail / Player ============ */
         .detail-page { display: none; }
         .main-wide { max-width: 1024px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e5e7eb; color: #0F172A; padding: 10px 18px; border-radius: 12px; cursor: pointer; margin-bottom: 16px; font-weight: 700; font-family: inherit; font-size: 0.875rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06); }
-        .back-btn:hover { border-color: #5E5ADB; color: #5E5ADB; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 10px 18px; border-radius: 12px; cursor: pointer; margin-bottom: 16px; font-weight: 700; font-family: inherit; font-size: 0.875rem; transition: border-color 0.2s, color 0.2s; }
+        .back-btn:hover { border-color: var(--indigo); color: var(--indigo); }
         .back-btn svg { width: 14px; height: 14px; }
-        
-        .player-container { 
-            width: 100%; 
-            aspect-ratio: 16 / 9; 
-            background: #000; 
-            border-radius: 16px; 
-            overflow: hidden; 
-            margin-bottom: 20px; 
-            border: 1px solid #e5e7eb; 
-            position: relative; 
-            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12); 
-        }
-        .player-container video { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; 
-            display: block;
+
+        .player-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
             background: #000;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            position: relative;
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
         }
-        .player-loader { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(15, 23, 42, 0.5); z-index: 5; pointer-events: none; }
-        .spinner { width: 46px; height: 46px; border: 4px solid rgba(255, 255, 255, 0.2); border-top-color: #5E5ADB; border-radius: 50%; animation: spin 0.9s linear infinite; }
-        .detail-title { font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 8px; line-height: 1.35; }
-        .detail-desc { font-size: 0.875rem; color: #6B7280; line-height: 1.5; }
+        .player-container iframe, .player-container video { width: 100%; height: 100%; border: none; }
+        .player-loader { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(10, 15, 30, 0.6); z-index: 5; pointer-events: none; }
+        .spinner { width: 46px; height: 46px; border: 4px solid rgba(255, 255, 255, 0.2); border-top-color: var(--cyan); border-radius: 50%; animation: spin 0.9s linear infinite; }
+        .player-cover { position: absolute; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(10, 15, 30, 0.65); cursor: pointer; }
+        .player-cover .big-play { width: 64px; height: 64px; border-radius: 50%; background: var(--grad-soft); display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 12px 30px rgba(99, 102, 241, 0.6); margin-bottom: 10px; }
+        .player-cover .big-play svg { width: 26px; height: 26px; margin-left: 3px; }
+        .player-cover span { color: #fff; font-weight: 800; font-size: 0.875rem; }
+        .detail-title { font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 8px; line-height: 1.35; }
+        .detail-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; }
+        .detail-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+        .share-btn { background: var(--grad); color: #fff; border: none; padding: 11px 22px; border-radius: 12px; cursor: pointer; font-weight: 800; font-size: 0.875rem; box-shadow: 0 8px 22px rgba(99, 102, 241, 0.45); transition: transform 0.2s, box-shadow 0.2s; }
+        .share-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(244, 114, 182, 0.5); }
+        .tg-small { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 10px 18px; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 0.875rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+        .tg-small:hover { border-color: var(--cyan); color: var(--cyan); }
+        .tg-small svg { width: 15px; height: 15px; color: var(--cyan); }
 
         /* ============ Footer ============ */
-        .site-footer { background: #fff; border-top: 1px solid #e5e7eb; margin-top: auto; padding: 24px 16px; text-align: center; font-size: 12px; color: #6B7280; }
-        .site-footer b { color: #5E5ADB; }
-
-        /* ============ Ad zones ============ */
-        .ad-zone { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; margin: 16px auto; overflow: hidden; width: 100%; min-height: 50px; }
-        .ad-zone iframe { max-width: 100%; }
-        .ad-label { display: block; text-align: center; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; }
+        .site-footer { background: var(--bg-soft); border-top: 1px solid var(--border); margin-top: auto; padding: 24px 16px; text-align: center; font-size: 12px; color: var(--text-muted); }
+        .site-footer b { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .site-footer .foot-tg { display: inline-flex; align-items: center; gap: 6px; color: var(--cyan); font-weight: 800; text-decoration: none; margin-top: 8px; }
+        .site-footer .foot-tg svg { width: 14px; height: 14px; }
 
         /* ============ Toast ============ */
-        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #0F172A; color: #fff; padding: 12px 24px; border-radius: 40px; font-weight: 700; font-size: 0.875rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2), opacity 0.3s; z-index: 1000; opacity: 0; pointer-events: none; }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--surface-2); border: 1px solid var(--border); color: var(--text); padding: 12px 24px; border-radius: 40px; font-weight: 700; font-size: 0.875rem; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5); transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2), opacity 0.3s; z-index: 1000; opacity: 0; pointer-events: none; }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         /* ============ Back to top ============ */
-        .back-to-top { position: fixed; bottom: 26px; right: 26px; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #5E5ADB, #8B5CF6); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(94, 90, 219, 0.45); opacity: 0; pointer-events: none; transform: translateY(12px); transition: 0.3s ease; z-index: 60; }
+        .back-to-top { position: fixed; bottom: 26px; right: 26px; width: 44px; height: 44px; border-radius: 50%; background: var(--grad); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(99, 102, 241, 0.5); opacity: 0; pointer-events: none; transform: translateY(12px); transition: 0.3s ease; z-index: 60; }
         .back-to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
         .back-to-top svg { width: 16px; height: 16px; }
 
+        /* ============ Floating Telegram ============ */
+        .tg-float { position: fixed; bottom: 90px; right: 26px; width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #38bdf8, #0284c7); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(2, 132, 199, 0.5); z-index: 59; transition: transform 0.25s; }
+        .tg-float:hover { transform: scale(1.1); }
+        .tg-float svg { width: 22px; height: 22px; }
+
         /* ============ Age gate ============ */
-        .age-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 16px; }
-        .age-card { background: #fff; border-radius: 16px; max-width: 384px; width: 100%; padding: 32px; text-align: center; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4); }
-        .age-badge { width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%; background: linear-gradient(135deg, #5E5ADB, #EC4899); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; font-weight: 900; }
-        .age-h { font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 8px; }
-        .age-p { font-size: 0.875rem; color: #6B7280; margin-bottom: 24px; line-height: 1.5; }
+        .age-overlay { position: fixed; inset: 0; background: rgba(5, 8, 18, 0.9); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 16px; }
+        .age-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; max-width: 384px; width: 100%; padding: 32px; text-align: center; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55); }
+        .age-badge { width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; font-weight: 900; box-shadow: 0 10px 26px rgba(99, 102, 241, 0.5); }
+        .age-h { font-size: 1.25rem; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+        .age-p { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
         .age-btns { display: flex; gap: 12px; }
         .btn { flex: 1; padding: 12px; border-radius: 12px; border: none; cursor: pointer; font-weight: 800; font-size: 0.875rem; font-family: inherit; transition: 0.2s; }
-        .btn-gray { background: #f3f4f6; color: #0F172A; }
-        .btn-gray:hover { background: #e5e7eb; }
-        .btn-primary { background: #5E5ADB; color: #fff; box-shadow: 0 8px 20px rgba(94, 90, 219, 0.4); }
-        .btn-primary:hover { background: #4b47c9; }
+        .btn-gray { background: var(--surface-2); color: var(--text); }
+        .btn-gray:hover { background: var(--surface-2); filter: brightness(1.2); }
+        .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 8px 22px rgba(99, 102, 241, 0.5); }
+        .btn-primary:hover { filter: brightness(1.1); }
 
-        .loading-text { color: #9ca3af; font-size: 0.875rem; padding: 16px; animation: pulse 1.5s ease-in-out infinite; }
-
-        /* ============ SexChatters Live-Style Ad Modal ============ */
-        .ad-popup-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            z-index: 9000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 12px;
-        }
-        .ad-popup-overlay.show {
-            display: flex;
-        }
-        .ad-popup-card {
-            position: relative;
-            background: #000;
-            border-radius: 16px;
-            max-width: 360px;
-            width: 100%;
-            height: 80vh;
-            max-height: 620px;
-            overflow: hidden;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(236, 72, 153, 0.3);
-            animation: livePop 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        @keyframes livePop {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        .ad-popup-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 30;
-            transition: transform 0.2s;
-        }
-        .ad-popup-close:hover {
-            transform: scale(1.15) rotate(90deg);
-            background: #ef4444;
-        }
-        .ad-live-bg {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.95) 100%),
-                        radial-gradient(circle at 50% 35%, #ec4899 0%, #3b0764 45%, #090514 90%);
-            z-index: 1;
-        }
-        .ad-live-header {
-            position: relative;
-            z-index: 10;
-            padding: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .ad-brand {
-            font-size: 1.1rem;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: 0.05em;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-        }
-        .ad-brand span { color: #f43f5e; }
-        .ad-live-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(0, 0, 0, 0.65);
-            padding: 3px 8px;
-            border-radius: 6px;
-            width: fit-content;
-            color: #fff;
-            font-size: 11px;
-            font-weight: 700;
-        }
-        .ad-live-badge-red {
-            background: #ef4444;
-            color: #fff;
-            font-size: 10px;
-            padding: 1px 5px;
-            border-radius: 4px;
-            font-weight: 900;
-        }
-        .ad-live-body {
-            position: relative;
-            z-index: 10;
-            padding: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .ad-alert-bar {
-            background: rgba(220, 38, 38, 0.35);
-            border: 1px solid rgba(239, 68, 68, 0.5);
-            backdrop-filter: blur(4px);
-            padding: 8px 12px;
-            border-radius: 10px;
-            color: #ffedd5;
-            font-size: 12px;
-            font-weight: 700;
-            text-align: center;
-        }
-        .ad-alert-bar b { color: #fb923c; }
-        .ad-promo-box {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 14px;
-            padding: 12px;
-            text-align: center;
-        }
-        .ad-promo-title {
-            color: #fff;
-            font-size: 13px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .ad-btn-white {
-            display: block;
-            width: 100%;
-            background: #fff;
-            color: #000;
-            padding: 10px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 13px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(255,255,255,0.3);
-            text-align: center;
-        }
-        .ad-promo-sub {
-            color: #94a3b8;
-            font-size: 11px;
-            margin-top: 6px;
-        }
-        .ad-chat-bar {
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(6px);
-            border-radius: 24px;
-            padding: 8px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: #cbd5e1;
-            font-size: 12px;
-        }
-        .ad-action-row {
-            display: flex;
-            gap: 10px;
-            margin-top: 2px;
-        }
-        .ad-btn-private {
-            flex: 1;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.6);
-            border: 1.5px solid #fbbf24;
-            color: #fff;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 800;
-            cursor: pointer;
-            text-align: center;
-        }
-        .ad-btn-signup {
-            flex: 1;
-            padding: 10px;
-            background: #84cc16;
-            color: #000;
-            border: none;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 900;
-            cursor: pointer;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(132, 204, 22, 0.4);
-        }
+        .loading-text { color: var(--text-muted); font-size: 0.875rem; padding: 16px; animation: pulse 1.5s ease-in-out infinite; }
 
         @media (max-width: 640px) {
             .card-wide { width: 280px; }
@@ -425,115 +249,13 @@
         </div>
     </div>
 
-    <!-- Live Stream Style Popup Modal Ad 1 -->
-    <div id="adPopupOverlay" class="ad-popup-overlay">
-        <div class="ad-popup-card">
-            <button class="ad-popup-close" onclick="closeAdPopup()" aria-label="Close">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>
-            </button>
-            
-            <div class="ad-live-bg"></div>
-
-            <div class="ad-live-header">
-                <div class="ad-brand">SEX<span>CHATTERS</span></div>
-                <div class="ad-live-pill">
-                    <span class="ad-live-badge-red">LIVE</span> 5904 viewers
-                </div>
-            </div>
-
-            <a class="ad-live-body" href="https://www.profitableratecpmnetwork.com/pkanxuighw?key=05efdf5ea970da158aea57c706d7511f" target="_blank" rel="nofollow noopener sponsored">
-                <div class="ad-alert-bar">
-                    ⚡ <b>Ultra High</b> vibration 3 sec by Acofrod
-                </div>
-                <div class="ad-promo-box">
-                    <div class="ad-promo-title">Want 50 tk FREE</div>
-                    <div class="ad-btn-white">Create Free Account</div>
-                    <div class="ad-promo-sub">and take it in our token giveaway</div>
-                </div>
-                <div class="ad-chat-bar">
-                    <span>💬 Public message...</span>
-                    <span>😊 🚀</span>
-                </div>
-                <div class="ad-action-row">
-                    <div class="ad-btn-private">Private</div>
-                    <div class="ad-btn-signup">Sign up</div>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <!-- Live Stream Style Popup Modal Ad 2 -->
-    <div id="adPopupOverlay2" class="ad-popup-overlay">
-        <div class="ad-popup-card">
-            <button class="ad-popup-close" onclick="closeAdPopup2()" aria-label="Close">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>
-            </button>
-            
-            <div class="ad-live-bg"></div>
-
-            <div class="ad-live-header">
-                <div class="ad-brand">LIVE<span>ROOM</span></div>
-                <div class="ad-live-pill">
-                    <span class="ad-live-badge-red">LIVE</span> 8,240 online
-                </div>
-            </div>
-
-            <a class="ad-live-body" href="https://www.profitableratecpmnetwork.com/pkanxuighw?key=05efdf5ea970da158aea57c706d7511f" target="_blank" rel="nofollow noopener sponsored">
-                <div class="ad-alert-bar">
-                    🔥 <b>Special Show</b> starting in 30 seconds
-                </div>
-                <div class="ad-promo-box">
-                    <div class="ad-promo-title">Claim VIP Access</div>
-                    <div class="ad-btn-white">Join Room Now</div>
-                    <div class="ad-promo-sub">100% Free & Anonymous</div>
-                </div>
-                <div class="ad-chat-bar">
-                    <span>💬 Send a greeting...</span>
-                    <span>❤️ 🔥</span>
-                </div>
-                <div class="ad-action-row">
-                    <div class="ad-btn-private">Chat 1-on-1</div>
-                    <div class="ad-btn-signup">Enter Room</div>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <!-- Live Stream Style Popup Modal Ad 3 -->
-    <div id="adPopupOverlay3" class="ad-popup-overlay">
-        <div class="ad-popup-card">
-            <button class="ad-popup-close" onclick="closeAdPopup3()" aria-label="Close">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>
-            </button>
-            
-            <div class="ad-live-bg"></div>
-
-            <div class="ad-live-header">
-                <div class="ad-brand">HOT<span>CONNECT</span></div>
-                <div class="ad-live-pill">
-                    <span class="ad-live-badge-red">HOT</span> Private Stream
-                </div>
-            </div>
-
-            <a class="ad-live-body" href="https://www.profitableratecpmnetwork.com/pkanxuighw?key=05efdf5ea970da158aea57c706d7511f" target="_blank" rel="nofollow noopener sponsored">
-                <div class="ad-promo-box">
-                    <div class="ad-promo-title">Watch Unlimited Videos</div>
-                    <div class="ad-btn-white">Open HD Player</div>
-                </div>
-                <div class="ad-action-row">
-                    <div class="ad-btn-signup" style="width: 100%;">CONTINUE NOW</div>
-                </div>
-            </a>
-        </div>
-    </div>
-
     <!-- App Container -->
     <div id="app" style="display: none;">
 
         <!-- Header -->
         <header class="top-header">
             <div class="header-inner">
-                <a class="logo" onclick="showHome(); return false;">
+                <a class="logo" href="javascript:void(0)" onclick="showHome(); return false;">
                     <span class="logo-icon">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="14"><path d="M8 5v14l11-7z"/></svg>
                     </span>
@@ -541,7 +263,7 @@
                 </a>
                 <div class="search-wrap">
                     <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-                    <input type="text" id="movieSearch" oninput="triggerSearch()" placeholder="ရုပ်ရှင် ဗီဒီယို ရှာဖွေရန်..." class="search-input">
+                    <input type="text" id="movieSearch" onkeydown="if(event.key==='Enter')triggerSearch()" placeholder="ရုပ်ရှင် ဗီဒီယို ရှာဖွေရန်..." class="search-input">
                 </div>
                 <button id="menuBtn" class="menu-btn" aria-label="Menu">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
@@ -558,7 +280,7 @@
                     <button id="closeMenuBtn" class="close-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
                 </div>
                 <nav class="sidebar-nav">
-                    <button class="nav-link active" onclick="showHome(); closeMenu();">
+                    <button class="nav-link active" id="navHome" onclick="showHome(); closeMenu();">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
                         Home (မူလစာမျက်နှာ)
                     </button>
@@ -566,7 +288,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><path d="M7 2v20M17 2v20M2 12h20"/></svg>
                         Movie (ရုပ်ရှင်များ)
                     </button>
-                    <a class="nav-link" href="https://t.me/twodtop" target="_blank" onclick="closeMenu()">
+                    <a class="nav-link" href="#" id="sidebarTgLink" target="_blank" rel="noopener noreferrer" onclick="closeMenu()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4z"/></svg>
                         Main Channel (မူရင်းချယ်နယ်)
                     </a>
@@ -576,6 +298,10 @@
                     </button>
                 </nav>
             </div>
+            <a class="nav-link" href="#" id="sidebarTgLink2" target="_blank" rel="noopener noreferrer" style="color:#22D3EE;font-weight:800;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4z"/></svg>
+                Join Telegram Channel
+            </a>
         </div>
 
         <!-- Home Page -->
@@ -593,13 +319,9 @@
                                 <h2 class="banner-h">MyanmarHD <span class="gradient-text">VIDEO HUB</span></h2>
                                 <p class="banner-p">Watch the hottest videos anytime, anywhere</p>
                             </div>
-                            <div class="banner-sponsored">Sponsored Ads</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Ad: 728x90 Leaderboard -->
-                <div class="ad-zone" data-key="a3c603223f0ea8562cca82730929e97f" data-w="728" data-h="90"></div>
 
                 <!-- 18+ Upcoming -->
                 <section class="section">
@@ -614,9 +336,6 @@
                     </div>
                 </section>
 
-                <!-- Ad: 728x90 Middle -->
-                <div class="ad-zone" data-key="a3c603223f0ea8562cca82730929e97f" data-w="728" data-h="90"></div>
-
                 <!-- 18+ Hot Video -->
                 <section id="hot-section" class="section">
                     <div class="section-title">
@@ -629,9 +348,6 @@
                         <div class="loading-text">Loading Hot Videos...</div>
                     </div>
                 </section>
-
-                <!-- Ad: Native Banner -->
-                <div class="ad-zone" data-type="native" data-key="3fd9e2fe4c94dedd18c20d13335bb9fe"></div>
 
                 <!-- 18+ All Video List -->
                 <section id="movie-list-section" class="section">
@@ -653,9 +369,6 @@
                         </button>
                     </div>
                 </section>
-
-                <!-- Ad: 320x50 Mobile Banner -->
-                <div class="ad-zone" data-key="69f5939abad35915bf6b6300bc92ec9c" data-w="320" data-h="50"></div>
             </main>
         </div>
 
@@ -680,21 +393,28 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                     Back
                 </button>
-                
-                <!-- Ad: 468x60 Banner -->
-                <div class="ad-zone" data-key="04c3f8853791fbbdb8735de6e86b4ca1" data-w="468" data-h="60"></div>
 
-                <!-- Video Player Container with Direct Stream Native Fallback -->
                 <div class="player-container">
-                    <video id="detailVideo" controls playsinline preload="auto" x5-playsinline webkit-playsinline></video>
-                    <div id="playerLoader" class="player-loader"><div class="spinner"></div></div>
+                    <video id="detailVideo" controls playsinline preload="metadata" style="display:none;"></video>
+                    <iframe id="detailIframe" allowfullscreen style="display:none;"></iframe>
+                    <div id="playerCover" class="player-cover" onclick="handlePlayerPlayClick()">
+                        <div class="big-play">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                        <span id="playerPlayText">Click to Play Video</span>
+                    </div>
                 </div>
 
                 <h1 class="detail-title" id="detailTitle"></h1>
                 <p class="detail-desc" id="detailDescription"></p>
 
-                <!-- Ad: 160x600 Skyscraper -->
-                <div class="ad-zone" data-key="a6cfb4034b8301762835b768fd53f16f" data-w="160" data-h="600"></div>
+                <div class="detail-actions">
+                    <button class="share-btn" onclick="copyDetailLink()">⚡ Share Video Link</button>
+                    <a class="tg-small" href="#" id="detailTgLink" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4z"/></svg>
+                        Join Telegram Channel
+                    </a>
+                </div>
 
                 <div class="section-title" style="margin-top: 24px;">
                     <span class="badge-18">18+</span>
@@ -702,19 +422,23 @@
                 </div>
                 <div class="laser-container"><div class="laser-line"></div></div>
                 <div id="recommendationWrapper" class="h-scroll"></div>
-
-                <!-- Ad: 160x300 Vertical -->
-                <div class="ad-zone" data-key="47da57271342cec40fd447aef8052e2b" data-w="160" data-h="300"></div>
             </main>
         </div>
 
         <footer class="site-footer">
             <b>MyanmarHD</b> — Copyright © 2026 All Rights Reserved.
             <div style="margin-top: 8px;">
-                <a href="https://www.profitableratecpmnetwork.com/pkanxuighw?key=05efdf5ea970da158aea57c706d7511f" target="_blank" rel="nofollow noopener sponsored" style="color:#5E5ADB; font-weight:700;">Sponsored</a>
+                <a class="foot-tg" href="#" id="footTgLink" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4z"/></svg>
+                    မူရင်းချယ်နယ် (Main Channel)
+                </a>
             </div>
         </footer>
     </div>
+
+    <a class="tg-float" href="#" id="floatTgLink" target="_blank" rel="noopener noreferrer" title="Join Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4z"/></svg>
+    </a>
 
     <button id="backToTop" class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
@@ -723,123 +447,164 @@
     <div id="toast" class="toast"></div>
 
     <script>
-        const FAVORITE_KEY = "general_video_favorites_v1";
-        const AGE_KEY = "general_video_age_verified_v1";
-        const API_BASE = "https://z317922-bh22ex.ls04.zwhhosting.com/api.php";
+        /* ============================================================
+           SETTINGS — ဒီနေရာမှာ သင့် Telegram Channel link ထည့်ပါ
+           ဥပမာ: const TELEGRAM_CHANNEL_URL = "https://t.me/your_channel";
+        ============================================================ */
+        const TELEGRAM_CHANNEL_URL = "https://t.me/ColourTrading1619";
+        const SITE_NAME = "MyanmarHD";
+        const FAVORITE_KEY = "myanmarhd_video_favorites_v1";
+        const AGE_KEY = "myanmarhd_age_verified_v1";
+        const SPREADSHEET_ID = "1vW97PpmSLk9gNgNHVR8pMj1tj78pu9kDc6cnSaz6kC8";
+        const SHEET_DATA_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json`;
+        const PAGE_SIZE = 12;
+
         const PLACEHOLDER_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225'%3E%3Crect width='100%25' height='100%25' fill='%23e2e8f0'/%3E%3Ctext x='50%25' y='50%25' fill='%239ca3af' font-size='18' text-anchor='middle' dominant-baseline='middle'%3ENo Image%3C/text%3E%3C/svg%3E";
 
         let videos = [];
+        let allVideos = [];
         let favorites = readJSON(FAVORITE_KEY, []);
         let activeQuery = "";
         let currentPage = 1;
         let isFetching = false;
-        let hasMoreData = true;
+        let currentDetailLink = "";
+        let isPlayerUnlocked = false;
 
         const ICON_HEART_FULL = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
         const ICON_HEART_EMPTY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
 
-        function decodeHtml(html) {
-            const txt = document.createElement("textarea");
-            txt.innerHTML = html;
-            return txt.value;
+        function applyTelegramLink() {
+            document.querySelectorAll("#sidebarTgLink, #sidebarTgLink2, #detailTgLink, #footTgLink, #floatTgLink").forEach(el => {
+                el.href = TELEGRAM_CHANNEL_URL;
+            });
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.logo-text, .site-footer b').forEach(el => {
+                el.textContent = SITE_NAME;
+            });
+            document.querySelector('.banner-h span.gradient-text').textContent = "VIDEO HUB";
+            document.title = `${SITE_NAME} - VIDEO Streaming Portal`;
+            applyTelegramLink();
             setupSidebar();
             setupBackToTop();
             checkAge();
             handleRouteHash();
             window.addEventListener('hashchange', handleRouteHash);
-
-            const playerVideo = document.getElementById("detailVideo");
-            const playerLoader = document.getElementById("playerLoader");
-            if (playerVideo && playerLoader) {
-                playerVideo.addEventListener("waiting", () => { playerLoader.style.display = "flex"; });
-                playerVideo.addEventListener("playing", () => { playerLoader.style.display = "none"; });
-                playerVideo.addEventListener("canplay", () => { playerLoader.style.display = "none"; });
-                playerVideo.addEventListener("loadeddata", () => { playerLoader.style.display = "none"; });
-                playerVideo.addEventListener("error", () => { 
-                    playerLoader.style.display = "none";
-                    console.log("Video playback error, trying raw source fallback...");
-                    if (playerVideo.dataset.rawSrc && playerVideo.src !== playerVideo.dataset.rawSrc) {
-                        playerVideo.src = playerVideo.dataset.rawSrc;
-                        playerVideo.load();
-                        playerVideo.play().catch(() => {});
-                    }
-                });
-            }
         });
 
         function readJSON(key, fallback) {
-            try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch { return fallback; }
+            try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (e) { return fallback; }
         }
 
         function saveJSON(key, value) {
             localStorage.setItem(key, JSON.stringify(value));
         }
 
-        function readCache(key) {
-            try {
-                const item = JSON.parse(localStorage.getItem(key));
-                if (item && item.t && Date.now() - item.t < 5 * 60 * 1000) return item.list;
-            } catch { }
-            return null;
+        function setupSidebar() {
+            document.getElementById("menuBtn").addEventListener("click", () => {
+                document.getElementById("sidebar").classList.add("open");
+                document.getElementById("sidebarOverlay").classList.add("open");
+            });
+            document.getElementById("closeMenuBtn").addEventListener("click", closeMenu);
         }
 
-        function writeCache(key, list) {
-            try { localStorage.setItem(key, JSON.stringify({ t: Date.now(), list })); } catch { }
+        function closeMenu() {
+            document.getElementById("sidebar").classList.remove("open");
+            document.getElementById("sidebarOverlay").classList.remove("open");
         }
 
-        function getProxyUrl(originalUrl) {
-            if (!originalUrl) return '';
-            if (originalUrl.startsWith('http://') || originalUrl.startsWith('https://')) {
-                return `https://images.weserv.nl/?url=${encodeURIComponent(originalUrl.replace(/^https?:\/\//, ''))}&w=400&output=jpg&q=85`;
-            }
-            return originalUrl;
+        function setupBackToTop() {
+            const btn = document.getElementById("backToTop");
+            window.addEventListener("scroll", () => {
+                btn.classList.toggle("show", window.scrollY > 500);
+            });
         }
 
-        function getCleanVideoUrl(url) {
-            if (!url) return '';
-            let clean = url.trim();
-            if (clean.includes('proxy.php?url=')) {
-                try {
-                    const extracted = clean.split('proxy.php?url=')[1];
-                    clean = decodeURIComponent(extracted);
-                } catch(e){}
-            }
-            if (clean.includes('stream?url=')) {
-                try {
-                    const extracted = clean.split('stream?url=')[1];
-                    clean = decodeURIComponent(extracted);
-                } catch(e){}
-            }
-            return clean;
+        function scrollToMovies() {
+            document.getElementById("homePage").style.display = "block";
+            document.getElementById("favoritesPage").style.display = "none";
+            document.getElementById("detailPage").style.display = "none";
+            document.getElementById("navHome").classList.add("active");
+            const el = document.getElementById("movie-list-section");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
         }
 
-        function fixImageSrc(imgElement, originalUrl) {
-            if (originalUrl && !imgElement.dataset.triedFix) {
-                imgElement.dataset.triedFix = "true";
-                let cleanUrl = originalUrl.replace(/^https?:\/\//, '');
-                imgElement.src = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}&w=400&output=jpg&q=85`;
-            } else {
-                imgElement.src = PLACEHOLDER_IMG;
-            }
-        }
-
-        function loadNextPage() {
+        async function fetchSheetVideos() {
             if (isFetching) return;
-            currentPage++;
-            if (currentPage > 10) currentPage = 1;
-            showExploreAdPopup();
-            const btn = document.querySelector('#loadMoreBtn .load-more-inner');
-            if (btn) btn.innerHTML = '<svg class="searching-spin" style="animation:spin .8s linear infinite;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg> REFRESHING VIDEOS...';
-            fetchDataFromApi(currentPage, true);
+            isFetching = true;
+
+            try {
+                const response = await fetch(SHEET_DATA_URL);
+                if (!response.ok) throw new Error("Sheet fetch failed");
+
+                let text = await response.text();
+                text = text.replace(/^\/\*O_o\*\/\s*/, "").trim();
+                text = text.replace(/^google\.visualization\.Query\.setResponse\(/, "").replace(/\)\s*;?\s*$/, "");
+                const data = JSON.parse(text);
+                const rows = data.table && data.table.rows ? data.table.rows : [];
+
+                if (!rows.length) {
+                    document.getElementById("upcomingWrapper").innerHTML = '<div class="loading-text">No content found. Try another keyword.</div>';
+                    document.getElementById("hotWrapper").innerHTML = '<div class="loading-text">No content found.</div>';
+                    document.getElementById("allMoviesWrapper").innerHTML = '<div class="loading-text">No content found.</div>';
+                    return;
+                }
+
+                const sheetVideos = rows.map((row, idx) => {
+                    const c = row.c || [];
+                    const cell = i => (c[i] && c[i].v != null ? String(c[i].v) : "");
+                    const title = cell(1) || "Untitled Video";
+                    const date = cell(4) || "";
+                    return {
+                        id: cell(0) || String(idx + 1),
+                        title: title,
+                        url: cell(2),
+                        thumbnail: cell(3),
+                        date: date,
+                        duration: date.slice(0, 10),
+                        quality: "HD",
+                        views: Math.floor(Math.random() * 800) + 120,
+                        description: title
+                    };
+                }).filter(v => v.url);
+
+                const byUrl = new Map();
+                sheetVideos.forEach(v => byUrl.set(v.url, v));
+                allVideos = [...byUrl.values()].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+                videos = allVideos;
+                currentPage = 1;
+                renderAll(false);
+            } catch (error) {
+                console.error("Sheet Fetch Error:", error);
+                document.getElementById("allMoviesWrapper").innerHTML = '<div class="loading-text">Error fetching sheet data. Check connection.</div>';
+            } finally {
+                isFetching = false;
+            }
+        }
+
+        function renderAll(isAppend) {
+            const upcomingWrapper = document.getElementById("upcomingWrapper");
+            const hotWrapper = document.getElementById("hotWrapper");
+            const allMoviesWrapper = document.getElementById("allMoviesWrapper");
+
+            if (!isAppend) {
+                const newest = [...videos].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+                upcomingWrapper.innerHTML = newest.slice(0, 10).map(v => cardHtml(v, 'upcoming')).join("");
+                const shuffled = [...videos].sort(() => Math.random() - 0.5);
+                hotWrapper.innerHTML = shuffled.slice(0, 12).map(v => cardHtml(v, 'wide')).join("");
+            }
+
+            allMoviesWrapper.innerHTML = videos.slice(0, currentPage * PAGE_SIZE).map(v => cardHtml(v, 'wide')).join("");
+
+            const loadBtn = document.getElementById("loadMoreBtn");
+            if (loadBtn) loadBtn.style.display = videos.length ? "inline-flex" : "none";
         }
 
         function cardHtml(video, type) {
             const isFav = favorites.some(fav => fav.id === video.id);
-            const img = `<img src="${video.thumbnail}" referrerpolicy="no-referrer" loading="lazy" decoding="async" onerror="fixImageSrc(this, '${video.rawThumbnail || video.thumbnail}')">`;
             const favBtn = `<button class="fav-btn${isFav ? ' on' : ''}" data-vid="${video.id}" onclick="event.stopPropagation(); toggleFavorite('${video.id}')">${isFav ? ICON_HEART_FULL : ICON_HEART_EMPTY}</button>`;
+            const img = `<img src="${escapeAttr(video.thumbnail)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG}'" alt="${escapeAttr(video.title)}">`;
 
             if (type === 'upcoming') {
                 return `
@@ -850,7 +615,7 @@
                             <span class="badge-hot">18+ HOT</span>
                         </div>
                         <div class="card-info">
-                            <div class="card-title">${video.title}</div>
+                            <div class="card-title">${escapeHtml(video.title)}</div>
                             <div class="card-sub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4-4 6-4 11a4 4 0 0 0 8 0c0-2-1-3-2-4-1 1-2 2-2 3"/></svg>HOT</div>
                         </div>
                     </div>`;
@@ -861,293 +626,167 @@
                     <div class="card-media">
                         ${img}
                         ${favBtn}
-                        <span class="badge-rate">${video.quality || "HD"}</span>
+                        <span class="badge-rate">${escapeHtml(video.quality || "HD")}</span>
+                        <span class="badge-dur" style="right:auto;left:8px;bottom:8px;">${escapeHtml(video.duration || "00:00")}</span>
                     </div>
                     <div class="card-info">
-                        <div class="card-title">${video.title}</div>
+                        <div class="card-title">${escapeHtml(video.title)}</div>
                         <div class="card-meta">
-                            <span class="star"><svg style="width:11px;height:11px;vertical-align:-1px;" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg> 9.5</span>
+                            <span class="star"><svg style="width:11px;height:11px;vertical-align:-1px;" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg> ${ratingOf(video.id)}</span>
                             <span class="card-cat">| 18+ HOT</span>
                         </div>
                     </div>
                 </div>`;
         }
 
-        function loadHotVideos() {
-            const hotWrapper = document.getElementById('hotWrapper');
-            if (!hotWrapper) return;
-            hotWrapper.innerHTML = '<div class="loading-text">Loading Hot Videos...</div>';
-
-            const pages = [1, 2, 3, 4, 5];
-            Promise.all(pages.map(p =>
-                fetch(`${API_BASE}?page=${p}&v=${new Date().getTime()}`).then(r => r.json()).catch(() => null)
-            ))
-                .then(results => {
-                    let all = [];
-                    results.forEach(d => {
-                        let list = [];
-                        if (d && d.status === "success" && Array.isArray(d.videos)) list = d.videos;
-                        else if (Array.isArray(d)) list = d;
-                        else if (d && d.result && Array.isArray(d.result)) list = d.result;
-                        else if (d && d.Video && Array.isArray(d.Video)) list = d.Video;
-                        all = all.concat(list);
-                    });
-
-                    const seen = new Set();
-                    const uniq = all.filter(v => {
-                        const k = String(v.id || v.video_id || v.link || v.url);
-                        if (seen.has(k)) return false;
-                        seen.add(k);
-                        return true;
-                    });
-
-                    const shuffled = [...uniq].sort(() => Math.random() - 0.5);
-                    const picked = shuffled.slice(0, 12);
-
-                    if (!picked.length) {
-                        hotWrapper.innerHTML = '<div class="loading-text">No hot videos found.</div>';
-                        return;
-                    }
-
-                    const mapped = picked.map(item => {
-                        const rawThumb = item.thumbnail || item.photo_link || item.image || "";
-                        const rawVideo = item.video_mp4 || item.mp4 || item.url || "";
-                        return {
-                            id: String(item.id || item.video_id || Math.random().toString(36).substring(2)),
-                            title: decodeHtml(item.title || item.name || "Untitled Video"),
-                            thumbnail: getProxyUrl(rawThumb),
-                            rawThumbnail: rawThumb,
-                            video_mp4: getCleanVideoUrl(rawVideo),
-                            duration: item.duration || "",
-                            quality: item.quality || "HD",
-                            views: item.views || 0,
-                            description: decodeHtml(item.description || item.title || "")
-                        };
-                    });
-
-                    videos = [...mapped, ...videos.filter(v => !mapped.some(m => m.id === v.id))];
-                    hotWrapper.innerHTML = mapped.map(v => cardHtml(v, 'wide')).join("");
-                })
-                .catch(() => {
-                    hotWrapper.innerHTML = '<div class="loading-text">Failed to load hot videos.</div>';
-                });
+        function ratingOf(id) {
+            let sum = 0;
+            const s = String(id);
+            for (let i = 0; i < s.length; i++) sum += s.charCodeAt(i);
+            return (7 + (sum % 29) / 10).toFixed(1);
         }
 
-        function fetchDataFromApi(page, isRefresh = false) {
+        function loadNextPage() {
             if (isFetching) return;
-            isFetching = true;
-
-            const cacheKey = `videos_${activeQuery}_${page}`;
-            const cached = readCache(cacheKey);
-            const useCache = cached !== null;
-
-            const doRender = (list) => {
-                isFetching = false;
-                const btn = document.querySelector('#loadMoreBtn .load-more-inner');
-                if (btn) btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg> EXPLORE MORE VIDEOS';
-
-                const upcomingWrapper = document.getElementById('upcomingWrapper');
-                const allMoviesWrapper = document.getElementById('allMoviesWrapper');
-
-                const fetchedList = list || [];
-                if (fetchedList.length === 0) {
-                    hasMoreData = false;
-                }
-                const mapped = fetchedList.map(item => {
-                    const rawThumb = item.thumbnail || item.photo_link || item.image || "";
-                    const rawVideo = item.video_mp4 || item.mp4 || item.url || "";
-                    return {
-                        id: String(item.id || item.video_id || Math.random().toString(36).substring(2)),
-                        title: decodeHtml(item.title || item.name || "Untitled Video"),
-                        thumbnail: getProxyUrl(rawThumb),
-                        rawThumbnail: rawThumb,
-                        video_mp4: getCleanVideoUrl(rawVideo),
-                        duration: item.duration || "",
-                        quality: item.quality || "HD",
-                        views: item.views || 0,
-                        description: decodeHtml(item.description || item.title || "")
-                    };
-                });
-
-                if (page === 1 || isRefresh) {
-                    upcomingWrapper.innerHTML = '';
-                    allMoviesWrapper.innerHTML = '';
-                    videos = mapped;
-                    mapped.forEach((video, index) => {
-                        if (index < 6) upcomingWrapper.innerHTML += cardHtml(video, 'upcoming');
-                        allMoviesWrapper.innerHTML += cardHtml(video, 'wide');
-                    });
-                    loadHotVideos();
-                } else {
-                    videos = [...videos, ...mapped];
-                    mapped.forEach(video => {
-                        allMoviesWrapper.innerHTML += cardHtml(video, 'wide');
-                    });
-                }
-
-                if (allMoviesWrapper.scrollLeft !== undefined) allMoviesWrapper.scrollLeft = 0;
-                if (isRefresh && upcomingWrapper.scrollLeft !== undefined) upcomingWrapper.scrollLeft = 0;
-                renderFavorites();
-            };
-
-            if (useCache) {
-                doRender(cached);
-                return;
+            if (videos.length <= currentPage * PAGE_SIZE) {
+                currentPage = 1;
+            } else {
+                currentPage++;
             }
-
-            let apiUrl = `${API_BASE}?page=${page}`;
-            if (activeQuery) apiUrl += `&search=${encodeURIComponent(activeQuery)}`;
-
-            fetch(apiUrl + '&v=' + new Date().getTime())
-                .then(res => res.json())
-                .then(data => {
-                    let list = [];
-                    if (data.status === "success" && Array.isArray(data.videos)) {
-                        list = data.videos;
-                    } else if (Array.isArray(data)) {
-                        list = data;
-                    } else if (data.result && Array.isArray(data.result)) {
-                        list = data.result;
-                    } else if (data.Video && Array.isArray(data.Video)) {
-                        list = data.Video;
-                    }
-                    if (list.length > 0) writeCache(cacheKey, list);
-                    doRender(list);
-                })
-                .catch(err => {
-                    isFetching = false;
-                    console.log(err);
-                    const btn = document.querySelector('#loadMoreBtn .load-more-inner');
-                    if (btn) btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg> EXPLORE MORE VIDEOS';
-                    if (page === 1 && !isRefresh) {
-                        document.getElementById('allMoviesWrapper').innerHTML = '<div class="loading-text">Failed to load videos.</div>';
-                    }
-                });
+            const btn = document.querySelector('#loadMoreBtn .load-more-inner');
+            if (btn) btn.innerHTML = '<svg style="animation:spin .8s linear infinite;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg> REFRESHING VIDEOS...';
+            setTimeout(() => {
+                renderAll(false);
+                if (btn) btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg> EXPLORE MORE VIDEOS';
+            }, 400);
         }
 
         function triggerSearch() {
-            const input = document.getElementById('movieSearch').value.toLowerCase();
-            document.querySelectorAll('.movie-card').forEach(card => {
-                const title = card.querySelector('.card-title') ? card.querySelector('.card-title').innerText.toLowerCase() : '';
-                card.style.display = title.includes(input) ? "" : "none";
-            });
+            const input = document.getElementById("movieSearch");
+            const q = input.value.trim();
+            if (!q) return;
+            activeQuery = q.toLowerCase();
+            currentPage = 1;
+            videos = allVideos.filter(v => v.title.toLowerCase().includes(activeQuery));
+            if (!videos.length) {
+                document.getElementById("upcomingWrapper").innerHTML = '<div class="loading-text">No content found for "' + escapeHtml(q) + '".</div>';
+                document.getElementById("hotWrapper").innerHTML = '<div class="loading-text">No content found.</div>';
+                document.getElementById("allMoviesWrapper").innerHTML = '<div class="loading-text">No content found. Try another keyword.</div>';
+            } else {
+                renderAll(false);
+            }
+            document.getElementById("homePage").style.display = "block";
+            document.getElementById("favoritesPage").style.display = "none";
+            document.getElementById("detailPage").style.display = "none";
+            document.getElementById("movie-list-section").scrollIntoView({ behavior: "smooth" });
+            input.blur();
         }
 
-        function setupSidebar() {
-            document.getElementById('menuBtn').onclick = () => { openMenu(); };
-            document.getElementById('closeMenuBtn').onclick = () => { closeMenu(); };
+        function handlePlayerPlayClick() {
+            if (!isPlayerUnlocked) {
+                isPlayerUnlocked = true;
+                document.getElementById("playerPlayText").textContent = "▶ Click again to Start Streaming!";
+                showToast("⚡ Tap Play again to start video!");
+            } else {
+                document.getElementById("playerCover").style.display = "none";
+                showToast("🎬 Playing Video...");
+            }
         }
 
-        function openMenu() {
-            document.getElementById('sidebarOverlay').classList.add('open');
-            document.getElementById('sidebar').classList.add('open');
+        function toggleFavorite(id) {
+            const video = videos.find(v => v.id === id) || favorites.find(v => v.id === id);
+            if (!video) return;
+
+            const index = favorites.findIndex(item => item.id === id);
+            if (index > -1) {
+                favorites.splice(index, 1);
+                showToast("Removed from collection");
+            } else {
+                favorites.push(video);
+                showToast("Added to your collection!");
+            }
+
+            saveJSON(FAVORITE_KEY, favorites);
+            if (document.getElementById("homePage").style.display !== "none") renderAll(false);
+            else renderFavorites();
         }
 
-        function closeMenu() {
-            document.getElementById('sidebarOverlay').classList.remove('open');
-            document.getElementById('sidebar').classList.remove('open');
+        function renderFavorites() {
+            const wrapper = document.getElementById("favoriteWrapper");
+            if (!favorites.length) {
+                wrapper.innerHTML = '<div class="loading-text">No saved videos. Tap the heart on videos to bookmark them.</div>';
+                return;
+            }
+            wrapper.innerHTML = favorites.map(v => cardHtml(v, 'wide')).join("");
         }
-
-        function scrollToMovies() {
-            document.getElementById('homePage').style.display = "block";
-            document.getElementById('favoritesPage').style.display = "none";
-            document.getElementById('detailPage').style.display = "none";
-            const sec = document.getElementById('movie-list-section');
-            if (sec) sec.scrollIntoView({ behavior: "smooth" });
-        }
-
-        function setupBackToTop() {
-            const btn = document.getElementById("backToTop");
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > 600) {
-                    btn.classList.add("show");
-                } else {
-                    btn.classList.remove("show");
-                }
-            });
-        }
-
-        /* ============ Detail / Player ============ */
 
         function handleRouteHash() {
             const hash = window.location.hash;
             if (hash.startsWith('#video/')) {
-                const id = hash.replace('#video/', '');
-                if (id) {
-                    openDetail(id, true);
-                }
+                const vId = hash.replace('#video/', '');
+                if (vId) openDetail(vId, false);
+            } else if (!hash) {
+                fetchHomeData();
             }
         }
 
-        async function openDetail(id, isDirectLoad = false) {
-            let video = videos.find(item => item.id === id) || favorites.find(item => item.id === id);
+        function fetchHomeData() {
+            if (videos.length || allVideos.length) return;
+            fetchSheetVideos();
+        }
 
-            if (!video && isDirectLoad) {
-                await fetchDataFromApi(1, false);
-                video = videos.find(item => item.id === id) || favorites.find(item => item.id === id);
-            }
+        async function openDetail(id, updateHash = true) {
+            let video = videos.find(item => item.id === id) || favorites.find(item => item.id === id) || allVideos.find(item => item.id === id);
 
             if (!video) return;
 
-            window.location.hash = `video/${video.id}`;
+            if (updateHash) {
+                history.pushState(null, "", `#video/${video.id}`);
+            }
+
+            isPlayerUnlocked = false;
+            document.getElementById("playerCover").style.display = "flex";
+            document.getElementById("playerPlayText").textContent = "Click to Play Video";
+
             document.getElementById("homePage").style.display = "none";
             document.getElementById("favoritesPage").style.display = "none";
             document.getElementById("detailPage").style.display = "block";
 
-            document.getElementById("ogTitle").setAttribute("content", video.title);
-            document.getElementById("ogDesc").setAttribute("content", video.description || video.title);
-            document.getElementById("ogImage").setAttribute("content", video.thumbnail);
-            document.title = `${video.title} - MyanmarHD`;
+            const iframe = document.getElementById("detailIframe");
+            const videoEl = document.getElementById("detailVideo");
 
-            const videoElement = document.getElementById("detailVideo");
-            const playerLoader = document.getElementById("playerLoader");
-            if (playerLoader) playerLoader.style.display = "flex";
-
-            videoElement.pause();
-            videoElement.poster = video.thumbnail;
-            videoElement.dataset.rawSrc = video.video_mp4;
-            videoElement.src = video.video_mp4;
-            videoElement.load();
-
-            // Handle browser autoplay policy
-            const playPromise = videoElement.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    if (playerLoader) playerLoader.style.display = "none";
-                }).catch(error => {
-                    if (playerLoader) playerLoader.style.display = "none";
-                    console.log("Autoplay was prevented, awaiting user click:", error);
-                });
+            if (video.url) {
+                videoEl.style.display = "block";
+                videoEl.src = video.url;
+                iframe.style.display = "none";
+                iframe.removeAttribute("src");
+            } else if (video.embed) {
+                iframe.style.display = "block";
+                iframe.src = video.embed;
+                videoEl.style.display = "none";
+                videoEl.removeAttribute("src");
             }
 
             document.getElementById("detailTitle").textContent = video.title;
-            document.getElementById("detailDescription").textContent = video.description;
+            document.getElementById("detailDescription").textContent = video.description || "";
 
-            renderRecommendations(video.id);
+            currentDetailLink = `${window.location.origin}${window.location.pathname}#video/${video.id}`;
+
+            document.getElementById("recommendationWrapper").innerHTML = videos.slice(0, 12).map(v => cardHtml(v, 'wide')).join("");
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
 
-        function renderRecommendations(currentId) {
-            const recWrapper = document.getElementById("recommendationWrapper");
-            const pool = videos.length > 0 ? videos : favorites;
-            const filtered = pool.filter(v => v.id !== currentId).sort(() => 0.5 - Math.random()).slice(0, 6);
-
-            if (filtered.length === 0) {
-                recWrapper.innerHTML = `<div class="loading-text">No recommendations available</div>`;
-                return;
-            }
-            recWrapper.innerHTML = filtered.map(video => cardHtml(video, 'upcoming')).join("");
-        }
-
         function closeDetail() {
-            const videoElement = document.getElementById("detailVideo");
-            videoElement.pause();
-            videoElement.removeAttribute("src");
-            videoElement.removeAttribute("poster");
+            const iframe = document.getElementById("detailIframe");
+            const videoEl = document.getElementById("detailVideo");
+            iframe.removeAttribute("src");
+            iframe.style.display = "none";
+            videoEl.pause();
+            videoEl.removeAttribute("src");
+            videoEl.style.display = "none";
 
             document.getElementById("detailPage").style.display = "none";
-            document.title = "MyanmarHD - VIDEO Streaming Portal";
-            history.pushState("", document.title, window.location.pathname);
+            history.pushState("", document.title, window.location.pathname + window.location.search);
             showHome();
         }
 
@@ -1155,7 +794,11 @@
             document.getElementById("homePage").style.display = "block";
             document.getElementById("favoritesPage").style.display = "none";
             document.getElementById("detailPage").style.display = "none";
+            document.getElementById("navHome").classList.add("active");
+            document.querySelectorAll("#sidebar .nav-link").forEach(l => l.classList.remove("active"));
+            document.getElementById("navHome").classList.add("active");
             window.scrollTo({ top: 0, behavior: "smooth" });
+            fetchHomeData();
         }
 
         function showFavorites() {
@@ -1163,62 +806,42 @@
             document.getElementById("homePage").style.display = "none";
             document.getElementById("detailPage").style.display = "none";
             document.getElementById("favoritesPage").style.display = "block";
+            document.querySelectorAll("#sidebar .nav-link").forEach(l => l.classList.remove("active"));
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
 
-        function renderFavorites() {
-            const wrapper = document.getElementById("favoriteWrapper");
-            if (!favorites.length) {
-                wrapper.innerHTML = '<div class="loading-text">No favorites yet</div>';
-                return;
-            }
-            wrapper.innerHTML = favorites.map(video => cardHtml(video, 'wide')).join("");
+        function copyDetailLink() {
+            copyToClipboard(currentDetailLink);
         }
 
-        function toggleFavorite(id) {
-            const video = videos.find(v => v.id === id) || favorites.find(v => v.id === id);
-            if (!video) return;
-            const index = favorites.findIndex(item => item.id === id);
-            if (index > -1) {
-                favorites.splice(index, 1);
-                showToast("Removed from favorites");
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => showToast("⚡ Link copied to clipboard!"));
             } else {
-                favorites.push(video);
-                showToast("Added to favorites");
+                const input = document.createElement('input');
+                input.value = text;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                showToast("⚡ Link copied to clipboard!");
             }
-            saveJSON(FAVORITE_KEY, favorites);
-            renderFavorites();
-            refreshFavButtons();
         }
 
-        function refreshFavButtons() {
-            document.querySelectorAll('.fav-btn').forEach(btn => {
-                const vid = btn.dataset.vid;
-                if (!vid) return;
-                const isFav = favorites.some(fav => fav.id === vid);
-                btn.innerHTML = isFav ? ICON_HEART_FULL : ICON_HEART_EMPTY;
-                if (isFav) btn.classList.add('on'); else btn.classList.remove('on');
-            });
-        }
-
-        function showToast(msg) {
+        let toastTimer;
+        function showToast(message) {
             const toast = document.getElementById("toast");
-            toast.textContent = msg;
+            toast.textContent = message;
             toast.classList.add("show");
-            setTimeout(() => toast.classList.remove("show"), 2000);
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
         }
-
-        /* ============ Age Gate ============ */
 
         function checkAge() {
-            if (localStorage.getItem(AGE_KEY) === "true") {
+            const verified = localStorage.getItem(AGE_KEY);
+            if (verified === "true") {
                 document.getElementById("ageOverlay").style.display = "none";
                 document.getElementById("app").style.display = "block";
-                loadAllAds();
-                if (!window.location.hash.startsWith('#video/')) {
-                    fetchDataFromApi(1, false);
-                }
-                maybeShowAdPopup();
             }
         }
 
@@ -1226,110 +849,19 @@
             localStorage.setItem(AGE_KEY, "true");
             document.getElementById("ageOverlay").style.display = "none";
             document.getElementById("app").style.display = "block";
-            loadAllAds();
-            if (!window.location.hash.startsWith('#video/')) {
-                fetchDataFromApi(1, false);
-            }
-            setTimeout(maybeShowAdPopup, 1200);
         }
 
         function declineAge() {
-            document.querySelector(".age-p").textContent = "Access denied.";
+            alert("You must be 18 or older to access " + SITE_NAME + ".");
         }
 
-        /* ============ Popup Modal Ad Logic ============ */
-        const AD_POPUP_KEY = "general_video_ad_popup_v1";
-
-        function maybeShowAdPopup() {
-            if (sessionStorage.getItem(AD_POPUP_KEY) === "true") return;
-            sessionStorage.setItem(AD_POPUP_KEY, "true");
-            setTimeout(() => {
-                const overlay = document.getElementById("adPopupOverlay");
-                if (overlay) overlay.classList.add("show");
-            }, 800);
+        function escapeHtml(value) {
+            return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
-        function closeAdPopup() {
-            const overlay = document.getElementById("adPopupOverlay");
-            if (overlay) overlay.classList.remove("show");
-            showAdPopup2Once();
-        }
-
-        function showAdPopup2Once() {
-            if (sessionStorage.getItem("general_video_ad_popup2_v1") === "true") return;
-            sessionStorage.setItem("general_video_ad_popup2_v1", "true");
-            setTimeout(() => {
-                const overlay2 = document.getElementById("adPopupOverlay2");
-                if (overlay2) overlay2.classList.add("show");
-            }, 600);
-        }
-
-        function closeAdPopup2() {
-            const overlay2 = document.getElementById("adPopupOverlay2");
-            if (overlay2) overlay2.classList.remove("show");
-            showAdPopup3Once();
-        }
-
-        function showAdPopup3Once() {
-            if (sessionStorage.getItem("general_video_ad_popup3_v1") === "true") return;
-            sessionStorage.setItem("general_video_ad_popup3_v1", "true");
-            setTimeout(() => {
-                const overlay3 = document.getElementById("adPopupOverlay3");
-                if (overlay3) overlay3.classList.add("show");
-            }, 600);
-        }
-
-        function closeAdPopup3() {
-            const overlay3 = document.getElementById("adPopupOverlay3");
-            if (overlay3) overlay3.classList.remove("show");
-        }
-
-        /* ============ Dynamic Ad Loading ============ */
-        function loadAdZone(zone) {
-            if (!zone || zone.dataset.loaded) return;
-            zone.dataset.loaded = "1";
-            const label = document.createElement("span");
-            label.className = "ad-label";
-            label.textContent = "Advertisement";
-            zone.appendChild(label);
-            if (zone.dataset.type === "native") {
-                const scr = document.createElement("script");
-                scr.async = true;
-                scr.setAttribute("data-cfasync", "false");
-                scr.src = `https://pl31085122.profitableratecpmnetwork.com/${zone.dataset.key}/invoke.js`;
-                zone.appendChild(scr);
-                const box = document.createElement("div");
-                box.id = `container-${zone.dataset.key}`;
-                zone.appendChild(box);
-            } else {
-                const opts = document.createElement("script");
-                opts.text = `atOptions = { 'key' : '${zone.dataset.key}', 'format' : 'iframe', 'height' : ${zone.dataset.h}, 'width' : ${zone.dataset.w}, 'params' : {} };`;
-                zone.appendChild(opts);
-                const inv = document.createElement("script");
-                inv.src = `https://www.highrevenueformat.com/${zone.dataset.key}/invoke.js`;
-                zone.appendChild(inv);
-            }
-        }
-
-        function loadAllAds() {
-            document.querySelectorAll('.ad-zone').forEach(loadAdZone);
-        }
-
-        function showExploreAdPopup() {
-            const overlay = document.getElementById("adPopupOverlay");
-            if (!overlay) return;
-            const overlay2 = document.getElementById("adPopupOverlay2");
-            const overlay3 = document.getElementById("adPopupOverlay3");
-            if (overlay2 && overlay2.classList.contains("show")) overlay2.classList.remove("show");
-            if (overlay3 && overlay3.classList.contains("show")) overlay3.classList.remove("show");
-            overlay.classList.add("show");
+        function escapeAttr(value) {
+            return String(value ?? "").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
     </script>
-
-    <!-- Ad: Popunder -->
-    <script src="https://pl31085120.profitableratecpmnetwork.com/d3/e9/f6/d3e9f63be036be390fe85278f114faf3.js"></script>
-
-    <!-- Ad: SocialBar -->
-    <script src="https://pl31085123.profitableratecpmnetwork.com/f9/ab/2a/f9ab2a657b75aa7d1a8fbb22225bbb37.js"></script>
 </body>
 </html>
