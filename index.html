@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyanmarHD - VIDEO Streaming Portal</title>
 
-    <!-- Dynamic Open Graph Meta Tags for Social Sharing / Link Previews -->
+    <!-- Dynamic Open Graph Meta Tags -->
     <meta property="id" content="MyanmarHD">
     <meta property="og:title" id="ogTitle" content="MyanmarHD - VIDEO Streaming Portal">
     <meta property="og:description" id="ogDesc" content="Watch high quality videos online.">
@@ -145,8 +145,25 @@
         .back-btn { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e5e7eb; color: #0F172A; padding: 10px 18px; border-radius: 12px; cursor: pointer; margin-bottom: 16px; font-weight: 700; font-family: inherit; font-size: 0.875rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06); }
         .back-btn:hover { border-color: #5E5ADB; color: #5E5ADB; }
         .back-btn svg { width: 14px; height: 14px; }
-        .player-container { width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 16px; overflow: hidden; margin-bottom: 20px; border: 1px solid #e5e7eb; position: relative; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12); }
-        .player-container video { width: 100%; height: 100%; object-fit: contain; }
+        
+        .player-container { 
+            width: 100%; 
+            aspect-ratio: 16 / 9; 
+            background: #000; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            margin-bottom: 20px; 
+            border: 1px solid #e5e7eb; 
+            position: relative; 
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12); 
+        }
+        .player-container video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            display: block;
+            background: #000;
+        }
         .player-loader { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(15, 23, 42, 0.5); z-index: 5; pointer-events: none; }
         .spinner { width: 46px; height: 46px; border: 4px solid rgba(255, 255, 255, 0.2); border-top-color: #5E5ADB; border-radius: 50%; animation: spin 0.9s linear infinite; }
         .detail-title { font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 8px; line-height: 1.35; }
@@ -157,7 +174,7 @@
         .site-footer b { color: #5E5ADB; }
 
         /* ============ Ad zones ============ */
-        .ad-zone { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; margin: 16px auto; overflow: hidden; width: 100%; }
+        .ad-zone { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; margin: 16px auto; overflow: hidden; width: 100%; min-height: 50px; }
         .ad-zone iframe { max-width: 100%; }
         .ad-label { display: block; text-align: center; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; }
 
@@ -171,7 +188,7 @@
         .back-to-top svg { width: 16px; height: 16px; }
 
         /* ============ Age gate ============ */
-        .age-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 16px; }
+        .age-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 16px; }
         .age-card { background: #fff; border-radius: 16px; max-width: 384px; width: 100%; padding: 32px; text-align: center; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4); }
         .age-badge { width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%; background: linear-gradient(135deg, #5E5ADB, #EC4899); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; font-weight: 900; }
         .age-h { font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 8px; }
@@ -206,8 +223,8 @@
             border-radius: 16px;
             max-width: 360px;
             width: 100%;
-            height: 82vh;
-            max-height: 640px;
+            height: 80vh;
+            max-height: 620px;
             overflow: hidden;
             border: 2px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(236, 72, 153, 0.3);
@@ -249,15 +266,6 @@
             background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.95) 100%),
                         radial-gradient(circle at 50% 35%, #ec4899 0%, #3b0764 45%, #090514 90%);
             z-index: 1;
-        }
-        .ad-live-img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.9;
         }
         .ad-live-header {
             position: relative;
@@ -672,13 +680,16 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                     Back
                 </button>
+                
                 <!-- Ad: 468x60 Banner -->
                 <div class="ad-zone" data-key="04c3f8853791fbbdb8735de6e86b4ca1" data-w="468" data-h="60"></div>
 
+                <!-- Video Player Container with Direct Stream Native Fallback -->
                 <div class="player-container">
-                    <video id="detailVideo" controls autoplay playsinline preload="auto"></video>
+                    <video id="detailVideo" controls playsinline preload="auto" x5-playsinline webkit-playsinline></video>
                     <div id="playerLoader" class="player-loader"><div class="spinner"></div></div>
                 </div>
+
                 <h1 class="detail-title" id="detailTitle"></h1>
                 <p class="detail-desc" id="detailDescription"></p>
 
@@ -727,6 +738,12 @@
         const ICON_HEART_FULL = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
         const ICON_HEART_EMPTY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
 
+        function decodeHtml(html) {
+            const txt = document.createElement("textarea");
+            txt.innerHTML = html;
+            return txt.value;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             setupSidebar();
             setupBackToTop();
@@ -740,7 +757,16 @@
                 playerVideo.addEventListener("waiting", () => { playerLoader.style.display = "flex"; });
                 playerVideo.addEventListener("playing", () => { playerLoader.style.display = "none"; });
                 playerVideo.addEventListener("canplay", () => { playerLoader.style.display = "none"; });
-                playerVideo.addEventListener("error", () => { playerLoader.style.display = "none"; });
+                playerVideo.addEventListener("loadeddata", () => { playerLoader.style.display = "none"; });
+                playerVideo.addEventListener("error", () => { 
+                    playerLoader.style.display = "none";
+                    console.log("Video playback error, trying raw source fallback...");
+                    if (playerVideo.dataset.rawSrc && playerVideo.src !== playerVideo.dataset.rawSrc) {
+                        playerVideo.src = playerVideo.dataset.rawSrc;
+                        playerVideo.load();
+                        playerVideo.play().catch(() => {});
+                    }
+                });
             }
         });
 
@@ -766,24 +792,28 @@
 
         function getProxyUrl(originalUrl) {
             if (!originalUrl) return '';
-            if (originalUrl.includes('proxy.php')) return originalUrl;
-            return `https://z317922-bh22ex.ls04.zwhhosting.com/proxy.php?url=${encodeURIComponent(originalUrl)}`;
+            if (originalUrl.startsWith('http://') || originalUrl.startsWith('https://')) {
+                return `https://images.weserv.nl/?url=${encodeURIComponent(originalUrl.replace(/^https?:\/\//, ''))}&w=400&output=jpg&q=85`;
+            }
+            return originalUrl;
         }
 
-        function getStreamUrl(originalUrl) {
-            if (!originalUrl) return '';
-            if (originalUrl.includes('/stream?url=')) return originalUrl;
-            if (originalUrl.includes('proxy.php')) return originalUrl;
-            return `stream?url=${encodeURIComponent(originalUrl)}`;
-        }
-
-        function prefetchStream(id) {
-            const video = videos.find(v => v.id === id);
-            if (!video || !video.video_mp4 || video._warmed) return;
-            video._warmed = true;
-            try {
-                fetch(video.video_mp4, { method: 'HEAD' }).catch(() => {});
-            } catch (e) { }
+        function getCleanVideoUrl(url) {
+            if (!url) return '';
+            let clean = url.trim();
+            if (clean.includes('proxy.php?url=')) {
+                try {
+                    const extracted = clean.split('proxy.php?url=')[1];
+                    clean = decodeURIComponent(extracted);
+                } catch(e){}
+            }
+            if (clean.includes('stream?url=')) {
+                try {
+                    const extracted = clean.split('stream?url=')[1];
+                    clean = decodeURIComponent(extracted);
+                } catch(e){}
+            }
+            return clean;
         }
 
         function fixImageSrc(imgElement, originalUrl) {
@@ -808,13 +838,12 @@
 
         function cardHtml(video, type) {
             const isFav = favorites.some(fav => fav.id === video.id);
-            const secureImgUrl = video.thumbnail.replace(/^http:\/\//, 'https://');
-            const img = `<img src="${secureImgUrl}" referrerPolicy="no-referrer" loading="lazy" decoding="async" onerror="fixImageSrc(this, '${video.thumbnail}')">`;
+            const img = `<img src="${video.thumbnail}" referrerpolicy="no-referrer" loading="lazy" decoding="async" onerror="fixImageSrc(this, '${video.rawThumbnail || video.thumbnail}')">`;
             const favBtn = `<button class="fav-btn${isFav ? ' on' : ''}" data-vid="${video.id}" onclick="event.stopPropagation(); toggleFavorite('${video.id}')">${isFav ? ICON_HEART_FULL : ICON_HEART_EMPTY}</button>`;
 
             if (type === 'upcoming') {
                 return `
-                    <div class="movie-card card-upcoming" onclick="openDetail('${video.id}')" onmouseenter="prefetchStream('${video.id}')">
+                    <div class="movie-card card-upcoming" onclick="openDetail('${video.id}')">
                         <div class="card-media">
                             ${img}
                             ${favBtn}
@@ -828,7 +857,7 @@
             }
 
             return `
-                <div class="movie-card card-wide" onclick="openDetail('${video.id}')" onmouseenter="prefetchStream('${video.id}')">
+                <div class="movie-card card-wide" onclick="openDetail('${video.id}')">
                     <div class="card-media">
                         ${img}
                         ${favBtn}
@@ -880,16 +909,21 @@
                         return;
                     }
 
-                    const mapped = picked.map(item => ({
-                        id: String(item.id || item.video_id || Math.random().toString(36).substring(2)),
-                        title: item.title || item.name || "Untitled Video",
-                        thumbnail: getProxyUrl(item.thumbnail || item.photo_link || item.image || ""),
-                        video_mp4: getStreamUrl(item.video_mp4 || item.mp4 || item.url || ""),
-                        duration: item.duration || "",
-                        quality: item.quality || "HD",
-                        views: item.views || 0,
-                        description: item.description || item.title || ""
-                    }));
+                    const mapped = picked.map(item => {
+                        const rawThumb = item.thumbnail || item.photo_link || item.image || "";
+                        const rawVideo = item.video_mp4 || item.mp4 || item.url || "";
+                        return {
+                            id: String(item.id || item.video_id || Math.random().toString(36).substring(2)),
+                            title: decodeHtml(item.title || item.name || "Untitled Video"),
+                            thumbnail: getProxyUrl(rawThumb),
+                            rawThumbnail: rawThumb,
+                            video_mp4: getCleanVideoUrl(rawVideo),
+                            duration: item.duration || "",
+                            quality: item.quality || "HD",
+                            views: item.views || 0,
+                            description: decodeHtml(item.description || item.title || "")
+                        };
+                    });
 
                     videos = [...mapped, ...videos.filter(v => !mapped.some(m => m.id === v.id))];
                     hotWrapper.innerHTML = mapped.map(v => cardHtml(v, 'wide')).join("");
@@ -919,16 +953,21 @@
                 if (fetchedList.length === 0) {
                     hasMoreData = false;
                 }
-                const mapped = fetchedList.map(item => ({
-                    id: String(item.id || item.video_id || Math.random().toString(36).substring(2)),
-                    title: item.title || item.name || "Untitled Video",
-                    thumbnail: getProxyUrl(item.thumbnail || item.photo_link || item.image || ""),
-                    video_mp4: getStreamUrl(item.video_mp4 || item.mp4 || item.url || ""),
-                    duration: item.duration || "",
-                    quality: item.quality || "HD",
-                    views: item.views || 0,
-                    description: item.description || item.title || ""
-                }));
+                const mapped = fetchedList.map(item => {
+                    const rawThumb = item.thumbnail || item.photo_link || item.image || "";
+                    const rawVideo = item.video_mp4 || item.mp4 || item.url || "";
+                    return {
+                        id: String(item.id || item.video_id || Math.random().toString(36).substring(2)),
+                        title: decodeHtml(item.title || item.name || "Untitled Video"),
+                        thumbnail: getProxyUrl(rawThumb),
+                        rawThumbnail: rawThumb,
+                        video_mp4: getCleanVideoUrl(rawVideo),
+                        duration: item.duration || "",
+                        quality: item.quality || "HD",
+                        views: item.views || 0,
+                        description: decodeHtml(item.description || item.title || "")
+                    };
+                });
 
                 if (page === 1 || isRefresh) {
                     upcomingWrapper.innerHTML = '';
@@ -1061,9 +1100,25 @@
             document.title = `${video.title} - MyanmarHD`;
 
             const videoElement = document.getElementById("detailVideo");
+            const playerLoader = document.getElementById("playerLoader");
+            if (playerLoader) playerLoader.style.display = "flex";
+
+            videoElement.pause();
             videoElement.poster = video.thumbnail;
+            videoElement.dataset.rawSrc = video.video_mp4;
             videoElement.src = video.video_mp4;
             videoElement.load();
+
+            // Handle browser autoplay policy
+            const playPromise = videoElement.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    if (playerLoader) playerLoader.style.display = "none";
+                }).catch(error => {
+                    if (playerLoader) playerLoader.style.display = "none";
+                    console.log("Autoplay was prevented, awaiting user click:", error);
+                });
+            }
 
             document.getElementById("detailTitle").textContent = video.title;
             document.getElementById("detailDescription").textContent = video.description;
